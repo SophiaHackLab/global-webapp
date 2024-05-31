@@ -112,7 +112,7 @@ const gallery = ref([
             </div>
             <div class="w-full md:w-1/2 px-5 md:px-0">
                 <div
-                    class="grid grid-flow-row grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-3 w-full h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
+                    class="grid grid-flow-row grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 w-full max-h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
                 >
                     <div
                         v-for="(image, index) in gallery"
@@ -125,7 +125,7 @@ const gallery = ref([
                     >
                         <NuxtImg
                             loading="lazy"
-                            class="object-cover break-inside-avoid h-full max-w-full hover:scale-105 transition-transform duration-500 ease-in-out"
+                            class="object-cover break-inside-avoid h-full w-full hover:scale-105 transition-transform duration-500 ease-in-out"
                             :src="image.src"
                             alt="Sophia Hack Lab"
                             width="500"

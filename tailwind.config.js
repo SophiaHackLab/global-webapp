@@ -15,6 +15,15 @@ export default {
                 DEFAULT: "0 0px 3px var(--tw-shadow-color)",
                 lg: "0 8px 16px var(--tw-shadow-color)",
             },
+            screens: {
+                sm: "640px",
+                md: "768px",
+                lg: "1024px",
+                xl: "1350px",
+                "2xl": "1440px",
+                "3xl": "1700px",
+                "4xl": "1920px",
+            },
             keyframes: {
                 megabounce: {
                     "0%, 100%": {
