@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { addZero, monthNames } from "~/composables/utils/format";
 
+const router = useRouter();
+const { user } = useUserStore();
+
 const events = [
     {
         title: "Hackpéro: 3e édition encore plus interactive + CTF accessible à tous.",
@@ -106,16 +109,34 @@ RDV au SHL - Sophia Hack Lab mercredi 19 juin vers 19h00
         location: "Vallauris, FR",
     },
 ];
+
+const handleNewsletter = () => {
+    router.push("/auth/login?redirect=/agenda");
+};
 </script>
 
 <template>
-    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full md:min-h-screen max-w-7xl">
+    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full md:min-h-screen max-w-7xl gap-5">
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10"
         >
             Agenda
         </h1>
-        <div class="w-full flex flex-col items-center gap-5 mt-10">
+        <Button
+            v-if="!user"
+            title="> Cliquer pour rester informé <"
+            theme="primary"
+            class="self-center"
+            @click="handleNewsletter"
+        />
+        <Button
+            v-if="user"
+            title="✅ Vous êtes inscrit à la newsletter"
+            theme="primary"
+            disabled
+            class="self-center"
+        />
+        <div class="w-full flex flex-col items-center gap-5">
             <div v-for="event in events" :key="event.title" class="flex items-center w-full gap-5">
                 <div class="flex flex-col items-center justify-center w-12 md:w-20">
                     <p class="text-2xl md:text-4xl font-bold text-white">{{ event.date.day }}</p>

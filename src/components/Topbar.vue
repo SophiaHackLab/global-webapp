@@ -32,7 +32,7 @@ watch(
 <template>
     <nav class="w-full flex items-center justify-center fixed top-0 z-10">
         <div
-            class="w-full md:h-fit flex flex-col md:flex-row items-center justify-between md:bg-black md:px-[calc(5rem-20px)]"
+            class="w-full lg:h-fit flex flex-col lg:flex-row items-center justify-between lg:bg-black lg:px-[calc(5rem-20px)]"
             :class="{
                 '!bg-black h-screen': isMenuOpen,
                 'h-fit': !isMenuOpen,
@@ -45,15 +45,15 @@ watch(
                 >
                     <NuxtImg src="/logo_rounded.png" width="50" height="50" class="w-full h-full" />
                 </NuxtLink>
-                <button @click="toggleMenu" class="md:hidden text-white font-bold text-2xl p-2">
+                <button @click="toggleMenu" class="lg:hidden text-white font-bold text-2xl p-2">
                     <LucideX color="white" :size="28" v-if="isMenuOpen" />
                     <LucideMenu color="white" :size="28" v-else />
                 </button>
             </div>
             <div
-                class="flex flex-col md:flex-row items-center gap-8 md:gap-5 whitespace-nowrap p-5"
+                class="flex flex-col lg:flex-row items-center gap-8 lg:gap-5 whitespace-nowrap p-5"
                 :class="{
-                    'hidden md:flex': !isMenuOpen,
+                    'hidden lg:flex': !isMenuOpen,
                 }"
             >
                 <NuxtLink v-for="item in menu" :to="item.link">{{ item.name }}</NuxtLink>
@@ -61,10 +61,10 @@ watch(
             <div
                 class="flex items-center gap-5 w-full justify-end p-5"
                 :class="{
-                    'hidden md:flex': !isMenuOpen,
+                    'hidden lg:flex': !isMenuOpen,
                 }"
             >
-                <NuxtLink to="/login">Espace membres</NuxtLink>
+                <NuxtLink to="/login">Se connecter</NuxtLink>
             </div>
         </div>
     </nav>

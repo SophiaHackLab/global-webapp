@@ -1,4 +1,19 @@
 <script setup lang="ts">
+import { ofetch } from "ofetch";
+
+const router = useRouter();
+const runtimeConfig = useRuntimeConfig();
+const { token } = useUserStore();
+
+globalThis.$fetch = ofetch.create({
+    onRequest: () => {},
+    baseURL: runtimeConfig.public.API_URL as string,
+    headers: {
+        Accept: "application/json",
+        Authorization: `Bearer ${token}`,
+    },
+});
+
 const head = {
     title: "SHL - Sophia HackLab",
     link: [{ id: "favicon", rel: "icon", href: "/favicon.ico" }],
@@ -11,8 +26,6 @@ const head = {
         },
     ],
 };
-
-const router = useRouter();
 
 // Handle error
 router.onError((error) => {

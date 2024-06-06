@@ -6,8 +6,16 @@ export default defineNuxtConfig({
         strict: true,
         typeCheck: true,
     },
-    devServer: {
+    imports: {
+        dirs: ["stores"],
+    },
+    /* devServer: {
         host: "0.0.0.0",
+    }, */
+    runtimeConfig: {
+        public: {
+            API_URL: process.env.NUXT_PUBLIC_API_URL || "https://api.shl.contact",
+        },
     },
     routeRules: {
         "/login": {
@@ -23,9 +31,13 @@ export default defineNuxtConfig({
     css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
     modules: [
         "@vueuse/nuxt",
+        "@pinia/nuxt",
         "@nuxtjs/tailwindcss",
         "@tresjs/nuxt",
         "@nuxt/image",
         "nuxt-lucide-icons",
     ],
+    pinia: {
+        autoImports: ["defineStore", "storeToRefs"],
+    },
 });

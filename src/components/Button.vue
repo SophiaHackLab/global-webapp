@@ -4,6 +4,7 @@ const props = defineProps<{
     theme: "primary";
     link?: string;
     expand?: boolean;
+    disabled?: boolean;
 }>();
 
 const button_type = () => {
@@ -24,7 +25,8 @@ const button_type = () => {
         class="font-bold py-2 px-5 w-fit hover:animate-glitch text-center"
         :class="{
             '!w-full': props.expand,
-            'bg-white hover:bg-white/10 text-black hover:text-white': props.theme == 'primary',
+            'bg-white  text-black whitespace-nowrap hover:underline': props.theme == 'primary',
+            'bg-white/10 text-white pointer-events-none': props.disabled,
         }"
     >
         {{ props.title }}

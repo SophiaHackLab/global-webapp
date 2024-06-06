@@ -112,15 +112,15 @@ const gallery = ref([
             </div>
             <div class="w-full md:w-1/2 px-5 md:px-0">
                 <div
-                    class="grid grid-flow-row grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 w-full max-h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
+                    class="grid grid-flow-row grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 w-full max-h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
                 >
                     <div
                         v-for="(image, index) in gallery"
                         :id="index.toString()"
-                        class="h-full max-w-full overflow-hidden min-h-44"
+                        class="h-80 md:h-full w-full md:max-w-full overflow-hidden min-h-44"
                         :class="{
-                            'col-span-2': image.span_x,
-                            'row-span-2': image.span_y,
+                            'md:col-span-2': image.span_x,
+                            'md:row-span-2': image.span_y,
                         }"
                     >
                         <NuxtImg

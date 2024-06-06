@@ -19,6 +19,11 @@ module.exports = {
     rules: {
         "vue/multi-word-component-names": "off",
         "vue/no-multiple-template-root": "off",
+        "vue/no-v-html": "off",
+        "no-console": "off",
+        "no-unmodified-loop-condition": "off",
+        "no-throw-literal": "off",
+        "import/no-named-as-default": "off",
     },
     tabWidth: 4,
 };

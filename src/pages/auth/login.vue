@@ -1,9 +1,48 @@
 <script setup lang="ts">
-const username = ref("");
-const password = ref("");
+import sendSendOTPEmail from "~/composables/auth/sendOTPEmail";
+import verifyOTPCode from "~/composables/auth/verifyOTPCode";
+import getUser from "~/composables/user/getUser";
 
-const handleSubmit = () => {
-    console.log(username, password);
+const router = useRouter();
+const route = useRoute();
+const { setToken, setUser } = useUserStore();
+
+const email = ref("");
+const otp = ref("");
+const globalError = ref("");
+
+const emailSent = ref(false);
+
+const sendOTPEmail = async (e: any) => {
+    globalError.value = "";
+    e.preventDefault();
+    if (!email.value || email.value.length < 3 || !email.value.includes("@")) {
+        return (globalError.value = "Veuillez entrer votre email");
+    }
+    const result = await sendSendOTPEmail(email.value);
+    if (result.statusCode && result.statusCode !== 200) {
+        globalError.value = result.message;
+    } else {
+        emailSent.value = true;
+    }
+};
+
+const login = async (e: any) => {
+    globalError.value = "";
+    e.preventDefault();
+    if (!otp.value || !parseInt(otp.value)) {
+        return (globalError.value = "Veuillez entrer le code magique");
+    }
+
+    const result = await verifyOTPCode(email.value, parseInt(otp.value));
+    if (result.statusCode && result.statusCode !== 200) {
+        globalError.value = result.message;
+    } else {
+        setToken(result.access_token);
+        getUser();
+        if (route.query.redirect) router.push(route.query.redirect as string);
+        else router.push("/");
+    }
 };
 </script>
 <template>
@@ -11,23 +50,43 @@ const handleSubmit = () => {
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white"
         >
-            Connexion
+            SE CONNECTER
         </h1>
-        <form class="flex flex-col gap-2 w-80" :on-submit="handleSubmit">
+        <p v-if="globalError" class="text-red-500 text-center">{{ globalError }}</p>
+        <p v-if="emailSent" class="text-white text-center">
+            Un code magique a été envoyé à votre email
+        </p>
+        <form class="flex flex-col gap-2 w-80">
             <input
-                v-model="username"
+                v-if="!emailSent"
+                v-model="email"
+                @focus="globalError = ''"
                 type="text"
-                placeholder="Nom d'utilisateur"
+                placeholder="Entrez votre email"
                 class="p-2 bg-white text-black"
             />
             <input
-                v-model="password"
-                type="password"
-                placeholder="Mot de passe"
+                v-if="emailSent"
+                v-model="otp"
+                @focus="globalError = ''"
+                type="text"
+                placeholder="Code magique"
                 class="p-2 bg-white text-black"
             />
-            <Button theme="primary" title="Se connecter" :expand="true" type="submit" />
-            <NuxtLink class="text-sm text-white/80 mt-1 text-center">Tu as oublié ton mdp ? Tant pis.</NuxtLink>
+            <Button
+                v-if="!emailSent"
+                theme="primary"
+                title="Envoyer code magique"
+                :expand="true"
+                @click="sendOTPEmail"
+            />
+            <Button
+                v-if="emailSent"
+                theme="primary"
+                title="Connexion"
+                :expand="true"
+                @click="login"
+            />
         </form>
     </div>
 </template>
