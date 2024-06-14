@@ -135,17 +135,19 @@ definePageMeta({
                         {{ monthNames[newEventDate.getMonth() - 1] }}
                     </p>
                 </div>
-                <div class="w-full border border-white/50 border-dashed p-4 flex flex-col gap-3">
-                    <input
-                        type="text"
-                        class="text-lg md:text-2xl font-bold bg-white/10"
-                        v-model="newEventName"
-                    />
-                    <input
-                        type="text"
-                        class="text-base md:text-lg font-bold bg-white/10"
-                        v-model="newEventSubtitle"
-                    />
+                <div class="w-full border border-white/50 border-dashed p-4 flex flex-col gap-5">
+                    <div class="flex flex-col gap-3">
+                        <input
+                            type="text"
+                            class="text-lg md:text-2xl font-bold bg-white/10"
+                            v-model="newEventName"
+                        />
+                        <input
+                            type="text"
+                            class="text-base md:text-lg font-bold bg-white/10"
+                            v-model="newEventSubtitle"
+                        />
+                    </div>
                     <div class="w-full !text-white">
                         <ClientOnly>
                             <MdEditor
@@ -155,21 +157,23 @@ definePageMeta({
                             />
                         </ClientOnly>
                     </div>
-                    <div class="flex items-center gap-2 pt-2">
-                        <div class="flex items-center gap-2">
-                            <LucideMapPin class="text-white w-4 h-4" />
-                            <input
-                                v-model="newEventLocation"
-                                type="text"
-                                class="text-white bg-white/10"
-                            />
-                        </div>
-                        -
-                        <div class="flex items-center gap-2">
-                            <p class="text-white">
+
+                    <div class="flex flex-col gap-2 pt-2 text-white font-medium">
+                        <div class="flex gap-2">
+                            <LucideClock class="w-4 h-4 min-w-4 mt-1" />
+                            <p class="">
+                                À
                                 <span>{{ newEventDate.getHours() }}</span
                                 >:<span>{{ addZero(newEventDate.getMinutes()) }}</span>
                             </p>
+                        </div>
+                        <div class="flex gap-2">
+                            <LucideMapPin class="w-4 h-4 min-w-4 mt-1" />
+                            <input
+                                v-model="newEventLocation"
+                                type="text"
+                                class="text-white bg-white/10 w-full"
+                            />
                         </div>
                     </div>
                     <div class="w-full flex justify-between">
