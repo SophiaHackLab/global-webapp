@@ -3,16 +3,6 @@ import { ofetch } from "ofetch";
 
 const router = useRouter();
 const runtimeConfig = useRuntimeConfig();
-const { token } = useUserStore();
-
-globalThis.$fetch = ofetch.create({
-    onRequest: () => {},
-    baseURL: runtimeConfig.public.API_URL as string,
-    headers: {
-        Accept: "application/json",
-        Authorization: `Bearer ${token}`,
-    },
-});
 
 const head = {
     title: "SHL - Sophia HackLab",
@@ -26,11 +16,6 @@ const head = {
         },
     ],
 };
-
-// Handle error
-router.onError((error) => {
-    console.error(error);
-});
 </script>
 
 <template>

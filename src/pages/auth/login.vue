@@ -40,10 +40,14 @@ const login = async (e: any) => {
     } else {
         setToken(result.access_token);
         getUser();
-        if (route.query.redirect) router.push(route.query.redirect as string);
-        else router.push("/");
+        if (route.query.redirect) window.location.href = route.query.redirect as string;
+        else window.location.href = "/";
     }
 };
+
+definePageMeta({
+    middleware: "auth",
+});
 </script>
 <template>
     <div class="h-screen w-full flex items-center justify-center flex-col gap-5">
@@ -52,7 +56,6 @@ const login = async (e: any) => {
         >
             SE CONNECTER
         </h1>
-        <p v-if="globalError" class="text-red-500 text-center">{{ globalError }}</p>
         <p v-if="emailSent" class="text-white text-center">
             Un code magique a été envoyé à votre email
         </p>
@@ -88,5 +91,6 @@ const login = async (e: any) => {
                 @click="login"
             />
         </form>
+        <p v-if="globalError" class="text-red-500 text-center">{{ globalError }}</p>
     </div>
 </template>

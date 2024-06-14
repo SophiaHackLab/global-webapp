@@ -49,6 +49,10 @@ const gallery = ref([
         src: "https://media.licdn.com/dms/image/D4D22AQHz-U0AYiLt2A/feedshare-shrink_1280/0/1714973049100?e=1719446400&v=beta&t=p4PwIOkLuVHpv29z8NXJbJCib91t7u3VZYwUGdhaXS4",
     },
 ]);
+
+definePageMeta({
+    middleware: "auth",
+});
 </script>
 
 <template>

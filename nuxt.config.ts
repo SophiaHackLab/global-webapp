@@ -1,14 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     ssr: true,
-    srcDir: "src/",
+    srcDir: "src",
     typescript: {
-        strict: true,
-        typeCheck: true,
+        shim: false,
     },
     imports: {
         dirs: ["stores"],
     },
+
     /* devServer: {
         host: "0.0.0.0",
     }, */

@@ -3,10 +3,11 @@ export const useUserStore = defineStore("user", () => {
 
     const user = ref<User | null>(null);
     const token = useCookie("session", {
-        maxAge: 60 * 60 * 24 * 30,
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7),
     });
 
     const setUser = (newUser: User) => {
+        if (!newUser) return;
         user.value = newUser;
     };
 
@@ -15,7 +16,7 @@ export const useUserStore = defineStore("user", () => {
     };
 
     const logout = () => {
-        token.value = null;
+        token.value = undefined;
         user.value = null;
 
         router.push("/auth/login");

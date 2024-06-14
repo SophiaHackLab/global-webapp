@@ -24,16 +24,16 @@
         "@vueuse/nuxt": "^9.13.0",
         "nuxt": "^3.11.2",
         "nuxt-lucide-icons": "^1.0.4",
-        "typescript": "^5.4.5",
+        "typescript": "^5.0.3",
         "vue-tsc": "^1.8.27"
     },
     "dependencies": {
+        "@pinia/nuxt": "^0.4.11",
         "@tresjs/cientos": "^3.9.0",
         "@tresjs/nuxt": "^2.1.2",
+        "pinia": "^2.1.7",
         "prettier": "^3.2.5",
-        "radix-vue": "^1.7.2",
-        "three": "^0.164.1",
-        "@pinia/nuxt": "^0.4.7",
-        "pinia": "^2.1.7"
+        "radix-vue": "^1.8.3",
+        "three": "^0.164.1"
     }
 }

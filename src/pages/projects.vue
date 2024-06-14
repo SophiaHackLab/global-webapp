@@ -24,6 +24,10 @@ const fetchRepos = async () => {
 onMounted(() => {
     fetchRepos();
 });
+
+definePageMeta({
+    middleware: "auth",
+});
 </script>
 
 <template>
