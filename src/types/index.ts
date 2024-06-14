@@ -11,6 +11,7 @@ declare global {
     interface AgendaEvent {
         id?: string;
         name: string;
+        subtitle: string;
         description: string;
         date: Date;
         location: string;

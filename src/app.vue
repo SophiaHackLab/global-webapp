@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { ofetch } from "ofetch";
-
-const router = useRouter();
-const runtimeConfig = useRuntimeConfig();
+import { config } from "md-editor-v3";
+import { EditorView } from "@codemirror/view";
 
 const head = {
     title: "SHL - Sophia HackLab",

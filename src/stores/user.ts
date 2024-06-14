@@ -19,7 +19,7 @@ export const useUserStore = defineStore("user", () => {
         token.value = undefined;
         user.value = null;
 
-        router.push("/auth/login");
+        window.location.reload();
     };
 
     return {

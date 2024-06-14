@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { user, logout } = useUserStore();
 const route = useRoute();
 const isMenuOpen = ref(false);
 
@@ -64,7 +65,8 @@ watch(
                     'hidden lg:flex': !isMenuOpen,
                 }"
             >
-                <NuxtLink to="/login">Se connecter</NuxtLink>
+                <NuxtLink v-if="!user" to="/login">Se connecter</NuxtLink>
+                <Button theme="ghost" v-else title="Se déconnecter" @click="logout" />
             </div>
         </div>
     </nav>

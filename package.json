@@ -31,6 +31,7 @@
         "@pinia/nuxt": "^0.4.11",
         "@tresjs/cientos": "^3.9.0",
         "@tresjs/nuxt": "^2.1.2",
+        "md-editor-v3": "^4.16.7",
         "pinia": "^2.1.7",
         "prettier": "^3.2.5",
         "radix-vue": "^1.8.3",

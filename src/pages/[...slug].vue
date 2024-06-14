@@ -4,7 +4,7 @@ const word = ref("ERREUR #404 Page introuvable");
 
 <template>
     <div class="h-screen w-full flex items-center justify-center flex-col gap-2">
-        <div class="w-96 h-96 border border-white overflow-hidden flex items-end group">
+        <div class="w-96 h-96 border border-white/50 overflow-hidden flex items-end group">
             <h1
                 class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap space-x-1.5 animate-inftranslate text-shadow shadow-white"
             >

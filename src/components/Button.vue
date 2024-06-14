@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
     title: string;
-    theme: "primary";
+    theme: "primary" | "ghost";
     link?: string;
     expand?: boolean;
     disabled?: boolean;
@@ -22,10 +22,10 @@ const button_type = () => {
     <component
         :is="button_type()"
         v-bind="button_type() == 'a' ? { href: props.link, target: '_blank' } : { to: props.link }"
-        class="font-bold py-2 px-5 w-fit hover:animate-glitch text-center"
+        class="font-bold py-2 px-5 w-fit hover:animate-glitch text-center hover:underline"
         :class="{
             '!w-full': props.expand,
-            'bg-white  text-black whitespace-nowrap hover:underline': props.theme == 'primary',
+            'bg-white  text-black whitespace-nowrap': props.theme == 'primary',
             'bg-white/10 text-white pointer-events-none': props.disabled,
         }"
     >

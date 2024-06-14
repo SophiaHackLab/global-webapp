@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { MdEditor } from "md-editor-v3";
+import "md-editor-v3/lib/style.css";
+
 import createAgendaEvent from "~/composables/event/createEvent";
 import deleteAgendaEvent from "~/composables/event/deleteEvent";
 import getEvents from "~/composables/event/getEvents";
@@ -6,18 +9,24 @@ import { addZero, monthNames } from "~/composables/utils/format";
 
 const router = useRouter();
 const { user } = useUserStore();
+const newsCookie = useCookie("news", {
+    expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 30 * 12),
+});
 
 const eventCreationOpened = ref(false);
 const isGlobalLoading = ref(true);
 
 const defaultNewEventValue = {
     name: "Titre de l'évènement",
-    description: "Super description de l'évènement à venir!",
+    subtitle: "Sous-titre de l'évènement",
+    description:
+        "# Super description de l'évènement à venir!\n\n## Sous-titre\n\n- Point 1\n- Point 2\n- Point 3",
     date: new Date(),
     location: "Vallauris, FR",
 };
 const newEventId = ref();
 const newEventName = ref(defaultNewEventValue.name);
+const newEventSubtitle = ref(defaultNewEventValue.subtitle);
 const newEventDescription = ref(defaultNewEventValue.description);
 const newEventLocation = ref(defaultNewEventValue.location);
 const newEventDate = ref(defaultNewEventValue.date);
@@ -31,6 +40,7 @@ const handleCreateEvent = async (id?: string) => {
     const result = await createAgendaEvent({
         id: newEventId.value,
         name: newEventName.value,
+        subtitle: newEventSubtitle.value,
         description: newEventDescription.value,
         date: newEventDate.value,
         location: newEventLocation.value,
@@ -43,6 +53,7 @@ const handleCreateEvent = async (id?: string) => {
             events.value = [result, ...events.value];
         }
         newEventName.value = defaultNewEventValue.name;
+        newEventSubtitle.value = defaultNewEventValue.subtitle;
         newEventDescription.value = defaultNewEventValue.description;
         newEventLocation.value = defaultNewEventValue.location;
         newEventDate.value = new Date();
@@ -61,6 +72,7 @@ const deleteEvent = async (event: AgendaEvent) => {
 const editEvent = (event: AgendaEvent) => {
     newEventId.value = event.id;
     newEventName.value = event.name;
+    newEventSubtitle.value = event.subtitle;
     newEventDescription.value = event.description;
     newEventLocation.value = event.location;
     newEventDate.value = new Date(event.date);
@@ -74,6 +86,10 @@ onMounted(async () => {
     if (result && result?.length) {
         events.value = result;
     }
+
+    if (user?.id) {
+        if (!newsCookie.value) newsCookie.value = "true";
+    }
 });
 
 definePageMeta({
@@ -84,19 +100,19 @@ definePageMeta({
 <template>
     <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full md:min-h-screen max-w-7xl gap-5">
         <h1
-            class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10"
+            class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10 mb-5"
         >
-            Agenda
+            Nos évènements
         </h1>
         <Button
-            v-if="!user"
+            v-if="!user && !newsCookie"
             title="S'inscrire à la newsletter"
             theme="primary"
             class="self-center"
             @click="handleNewsletter"
         />
         <Button
-            v-if="user && !user?.roles.includes('ADMIN')"
+            v-if="newsCookie && !user?.roles.includes('ADMIN')"
             title="✅ Vous êtes inscrit à la newsletter"
             theme="primary"
             disabled
@@ -119,7 +135,7 @@ definePageMeta({
                         {{ monthNames[newEventDate.getMonth() - 1] }}
                     </p>
                 </div>
-                <div class="w-full border border-white border-dashed p-4 flex flex-col gap-3">
+                <div class="w-full border border-white/50 border-dashed p-4 flex flex-col gap-3">
                     <input
                         type="text"
                         class="text-lg md:text-2xl font-bold bg-white/10"
@@ -127,9 +143,18 @@ definePageMeta({
                     />
                     <input
                         type="text"
-                        class="text-sm md:text-base text-white/80 line-clamp-2 bg-white/10"
-                        v-model="newEventDescription"
+                        class="text-base md:text-lg font-bold bg-white/10"
+                        v-model="newEventSubtitle"
                     />
+                    <div class="w-full !text-white">
+                        <ClientOnly>
+                            <MdEditor
+                                :noUploadImg="true"
+                                theme="dark"
+                                v-model="newEventDescription"
+                            />
+                        </ClientOnly>
+                    </div>
                     <div class="flex items-center gap-2 pt-2">
                         <div class="flex items-center gap-2">
                             <LucideMapPin class="text-white w-4 h-4" />
@@ -143,7 +168,7 @@ definePageMeta({
                         <div class="flex items-center gap-2">
                             <p class="text-white">
                                 <span>{{ newEventDate.getHours() }}</span
-                                >:<span>{{ newEventDate.getMinutes() }}</span>
+                                >:<span>{{ addZero(newEventDate.getMinutes()) }}</span>
                             </p>
                         </div>
                     </div>
@@ -154,6 +179,11 @@ definePageMeta({
                             type="datetime-local"
                             :min="new Date().toISOString().slice(0, 16)"
                             class="px-5 h-[40px] bg-white text-black"
+                            :value="
+                                new Date(new Date(newEventDate).getTime() + 1000 * 60 * 60 * 2)
+                                    .toISOString()
+                                    .slice(0, 16)
+                            "
                             @input="(e: any) => (newEventDate = new Date(e?.target?.value))"
                         />
                         <Button
@@ -168,7 +198,7 @@ definePageMeta({
             <div
                 v-for="agendaEvent in events"
                 :key="agendaEvent.name"
-                class="flex items-center w-full gap-5"
+                class="flex items-center w-full gap-5 group"
             >
                 <div class="flex flex-col items-center justify-center w-12 md:w-20">
                     <p class="text-2xl md:text-4xl font-bold text-white">
@@ -178,15 +208,19 @@ definePageMeta({
                         {{ monthNames[new Date(agendaEvent.date).getMonth() - 1] }}
                     </p>
                     <div v-if="user?.roles.includes('ADMIN')" class="flex gap-2 mt-2">
-                        <button
-                            @click="deleteEvent(agendaEvent)"
-                            class="text-red-500"
-                            title="Supprimer l'évènement"
+                        <Prompt
+                            title="Voulez-vous vraiment supprimer l'évènement ?"
+                            subtitle="Cette action est irréversible."
+                            :action="() => deleteEvent(agendaEvent)"
                         >
-                            <LucideTrash />
-                        </button>
+                            <template #trigger>
+                                <button class="text-red-500" title="Supprimer l'évènement">
+                                    <LucideTrash />
+                                </button>
+                            </template>
+                        </Prompt>
                         <button
-                            @click="editEvent(agendaEvent)"
+                            @click="() => editEvent(agendaEvent)"
                             class="text-blue-500"
                             title="Modifier l'évènement"
                         >
@@ -194,37 +228,41 @@ definePageMeta({
                         </button>
                     </div>
                 </div>
-                <div class="w-full border border-white p-4 flex flex-col gap-3">
-                    <h2 class="text-lg md:text-2xl font-bold">{{ agendaEvent.name }}</h2>
-                    <p class="text-sm md:text-base text-white/80 line-clamp-2">
-                        {{ agendaEvent.description }}
-                    </p>
-                    <div class="flex items-center gap-2 pt-2">
-                        <div class="flex items-center gap-2">
-                            <LucideMapPin class="text-white w-4 h-4" />
-                            <p class="text-white">{{ agendaEvent.location }}</p>
-                        </div>
-                        -
-                        <div class="flex items-center gap-2">
-                            <p class="text-white">
+                <NuxtLink
+                    :to="`/agenda/${agendaEvent.id}`"
+                    class="w-full border border-white/50 p-4 flex flex-col gap-3 group-hover:bg-white/5 cursor-pointer hover:!no-underline"
+                >
+                    <div class="flex flex-col gap-1">
+                        <h2 class="text-lg md:text-2xl font-bold">{{ agendaEvent.name }}</h2>
+                        <p class="text-sm md:text-base font-normal text-white/80 line-clamp-2">
+                            {{ agendaEvent.subtitle }}
+                        </p>
+                    </div>
+                    <div class="flex flex-col gap-2 pt-2 text-white font-medium">
+                        <div class="flex gap-2">
+                            <LucideClock class="w-4 h-4 min-w-4 mt-1" />
+                            <p class="">
+                                À
                                 {{ new Date(agendaEvent.date).getHours() }}:{{
                                     addZero(new Date(agendaEvent.date).getMinutes())
                                 }}
                             </p>
                         </div>
+                        <div class="flex gap-2">
+                            <LucideMapPin class="w-4 h-4 min-w-4 mt-1" />
+                            <p class="">
+                                {{ agendaEvent.location }}
+                            </p>
+                        </div>
                     </div>
-                    <a
-                        v-if="agendaEvent.externalLink"
-                        :href="agendaEvent.externalLink"
-                        target="_blank"
-                        class="text-red-500"
-                        >Voir plus d'infos</a
-                    >
-                </div>
+                    <NuxtLink :to="`/agenda/${agendaEvent.id}`" class="text-red-500"
+                        >Voir plus d'infos
+                    </NuxtLink>
+                </NuxtLink>
             </div>
             <div
                 v-if="!events.length && !eventCreationOpened && !isGlobalLoading"
-                class="h-full flex items-center justify-center"
+                class="h-full flex items-center justify-center mt-20"
             >
                 <p class="text-white/80">Aucun évènement à venir</p>
             </div>
@@ -237,3 +275,9 @@ definePageMeta({
         </div>
     </div>
 </template>
+
+<style scoped lang="css">
+:deep(.ql-editor) {
+    min-height: 200px;
+}
+</style>

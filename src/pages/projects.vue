@@ -44,7 +44,7 @@ definePageMeta({
             <div
                 v-for="repo in all_repos"
                 :key="repo.id"
-                class="border border-white p-5 flex flex-col gap-5 justify-between h-full"
+                class="border border-white/50 p-5 flex flex-col gap-5 justify-between h-full"
             >
                 <div class="flex flex-col gap-5">
                     <h2 class="text-xl font-bold">{{ repo.name }}</h2>
