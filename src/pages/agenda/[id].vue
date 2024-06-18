@@ -11,8 +11,12 @@ const agendaEvent: Ref<AgendaEvent | undefined> = ref();
 const isGlobalLoading = ref(true);
 
 const handleGetAgenda = async () => {
+    const full_id = (route.params.id as string).split("-");
+    const only_id =
+        full_id[0] + "-" + full_id[1] + "-" + full_id[2] + "-" + full_id[3] + "-" + full_id[4];
+    if (!only_id) return;
     isGlobalLoading.value = true;
-    const result = await getAgendaEvent(route.params.id as string);
+    const result = await getAgendaEvent(only_id);
     isGlobalLoading.value = false;
     if (result?.id) {
         agendaEvent.value = result;

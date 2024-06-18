@@ -233,7 +233,12 @@ definePageMeta({
                     </div>
                 </div>
                 <NuxtLink
-                    :to="`/agenda/${agendaEvent.id}`"
+                    :to="`/agenda/${agendaEvent.id}-${agendaEvent.name
+                        .toLowerCase()
+                        .replaceAll(/ /g, '-')
+                        .replaceAll(/[^a-zA-Z0-9-]/g, '')
+                        .replaceAll(/--/g, '-')
+                        .slice(0, 50)}`"
                     class="w-full border border-white/50 p-4 flex flex-col gap-3 group-hover:bg-white/5 cursor-pointer hover:!no-underline"
                 >
                     <div class="flex flex-col gap-1">
