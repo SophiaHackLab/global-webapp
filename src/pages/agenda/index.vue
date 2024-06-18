@@ -113,7 +113,7 @@ definePageMeta({
         />
         <Button
             v-if="newsCookie && !user?.roles.includes('ADMIN')"
-            title="✅ Vous êtes inscrit à la newsletter"
+            title="Vous êtes inscrit à la newsletter"
             theme="primary"
             disabled
             class="self-center"
