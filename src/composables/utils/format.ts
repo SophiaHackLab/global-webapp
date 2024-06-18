@@ -16,3 +16,9 @@ export const monthNames = [
     "Nov.",
     "Déc.",
 ];
+
+export const weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
+
+export const truncate = (text: string, length: number) => {
+    return text.length > length ? text.slice(0, length) + "..." : text;
+};

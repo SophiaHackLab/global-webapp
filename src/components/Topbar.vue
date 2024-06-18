@@ -1,7 +1,10 @@
 <script setup lang="ts">
+import getEvents from "~/composables/event/getEvents";
+
 const { user, logout } = useUserStore();
 const route = useRoute();
 const isMenuOpen = ref(false);
+const newEventCounts = ref(0);
 
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
@@ -17,10 +20,27 @@ const menu = ref([
         name: "Coworking",
         link: "/coworking",
     },
-    { name: "Agenda", link: "/agenda" },
+    { name: "Agenda", link: "/agenda", badge: newEventCounts.value },
     { name: "Projets", link: "/projects" },
     { name: "Contact", link: "/contact" },
 ]);
+
+onMounted(async () => {
+    const events: AgendaEvent[] | undefined = await getEvents();
+    if (events) {
+        console.log(events);
+        newEventCounts.value = events?.filter(
+            (event) => new Date(event.date).getTime() > new Date().getTime(),
+        )?.length;
+
+        menu.value = menu.value.map((item) => {
+            if (item.name === "Agenda") {
+                return { ...item, badge: newEventCounts.value };
+            }
+            return item;
+        });
+    }
+});
 
 watch(
     () => route.fullPath,
@@ -57,7 +77,15 @@ watch(
                     'hidden lg:flex': !isMenuOpen,
                 }"
             >
-                <NuxtLink v-for="item in menu" :to="item.link">{{ item.name }}</NuxtLink>
+                <NuxtLink v-for="item in menu" :to="item.link" class="flex items-center gap-2"
+                    >{{ item.name }}
+                    <span
+                        v-if="item.badge"
+                        class="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5"
+                    >
+                        {{ item.badge }}
+                    </span>
+                </NuxtLink>
             </div>
             <div
                 class="flex items-center gap-5 w-full justify-end p-5"

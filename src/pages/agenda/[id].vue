@@ -3,7 +3,7 @@ import { MdPreview } from "md-editor-v3";
 import "md-editor-v3/lib/preview.css";
 
 import getAgendaEvent from "~/composables/event/getEvent";
-import { addZero, monthNames } from "~/composables/utils/format";
+import { addZero, monthNames, weekDays } from "~/composables/utils/format";
 
 const route = useRoute();
 
@@ -42,8 +42,9 @@ await handleGetAgenda();
             <!-- <h2 class="text-lg lg:text-xl text-white/80">{{ agendaEvent?.subtitle }}</h2> -->
             <div class="flex gap-2 pt-2 flex-col font-medium text-white/80">
                 <div class="flex gap-2">
-                    <LucideCalendar class="w-4 h-4 min-w-4 mt-1" />
+                    <LucideCalendar class="w-5 h-5 min-w-5 mt-1" />
                     <p class="">
+                        {{ weekDays[new Date(agendaEvent?.date as Date).getDay()] }}
                         {{ new Date(agendaEvent?.date as Date).getDate() }}
                         {{ monthNames[new Date(agendaEvent?.date as Date).getMonth()] }}
                         {{ new Date(agendaEvent?.date as Date).getFullYear() }}
@@ -53,8 +54,13 @@ await handleGetAgenda();
                     </p>
                 </div>
                 <div class="flex gap-2">
-                    <LucideMapPin class="w-4 h-4 min-w-4 mt-1" />
-                    <p class="">{{ agendaEvent?.location }}</p>
+                    <LucideMapPin class="w-5 h-5 min-w-5 mt-1" />
+                    <a
+                        :href="'http://maps.google.com/?q=' + agendaEvent?.location"
+                        target="_blank"
+                        class=""
+                        >{{ agendaEvent?.location }}</a
+                    >
                 </div>
             </div>
             <div class="pt-5 mb-20">

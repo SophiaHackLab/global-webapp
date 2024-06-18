@@ -5,7 +5,7 @@ import "md-editor-v3/lib/style.css";
 import createAgendaEvent from "~/composables/event/createEvent";
 import deleteAgendaEvent from "~/composables/event/deleteEvent";
 import getEvents from "~/composables/event/getEvents";
-import { addZero, monthNames } from "~/composables/utils/format";
+import { addZero, monthNames, truncate, weekDays } from "~/composables/utils/format";
 
 const router = useRouter();
 const { user } = useUserStore();
@@ -203,13 +203,34 @@ definePageMeta({
                 v-for="agendaEvent in events"
                 :key="agendaEvent.name"
                 class="flex items-center w-full gap-5 group"
+                :class="{
+                    'opacity-50 grayscale':
+                        new Date(agendaEvent.date).getTime() < new Date().getTime(),
+                }"
             >
                 <div class="flex flex-col items-center justify-center w-12 md:w-20">
+                    <p
+                        v-if="new Date(agendaEvent.date).getTime() > new Date().getTime()"
+                        class="text-lg md:text-xl text-white/80"
+                    >
+                        {{ weekDays[new Date(agendaEvent.date).getDay()] }}
+                    </p>
+
                     <p class="text-2xl md:text-4xl font-bold text-white">
                         {{ new Date(agendaEvent.date).getDate() }}
                     </p>
                     <p class="text-lg md:text-xl text-white/80">
                         {{ monthNames[new Date(agendaEvent.date).getMonth() - 1] }}
+                    </p>
+                    <p v-if="new Date(agendaEvent.date).getTime() < new Date().getTime()">
+                        <span class="bg-white/80 text-black text-xs px-1 py-0.5 uppercase"
+                            >Passé</span
+                        >
+                    </p>
+                    <p v-else>
+                        <span class="bg-amber-400 text-black text-xs px-1 py-0.5 uppercase"
+                            >Bientôt</span
+                        >
                     </p>
                     <div v-if="user?.roles.includes('ADMIN')" class="flex gap-2 mt-2">
                         <Prompt
@@ -242,7 +263,9 @@ definePageMeta({
                     class="w-full border border-white/50 p-4 flex flex-col gap-3 group-hover:bg-white/5 cursor-pointer hover:!no-underline"
                 >
                     <div class="flex flex-col gap-1">
-                        <h2 class="text-lg md:text-2xl font-bold">{{ agendaEvent.name }}</h2>
+                        <h2 class="text-lg md:text-2xl font-bold">
+                            {{ agendaEvent.name }}
+                        </h2>
                         <p class="text-sm md:text-base font-normal text-white/80 line-clamp-2">
                             {{ agendaEvent.subtitle }}
                         </p>
@@ -260,11 +283,17 @@ definePageMeta({
                         <div class="flex gap-2">
                             <LucideMapPin class="w-4 h-4 min-w-4 mt-1" />
                             <p class="">
-                                {{ agendaEvent.location }}
+                                {{ truncate(agendaEvent.location, 70) }}
                             </p>
                         </div>
                     </div>
-                    <NuxtLink :to="`/agenda/${agendaEvent.id}`" class="text-red-500"
+                    <NuxtLink
+                        :to="`/agenda/${agendaEvent.id}`"
+                        class="text-red-500"
+                        :class="{
+                            'text-white/80':
+                                new Date(agendaEvent.date).getTime() < new Date().getTime(),
+                        }"
                         >Voir plus d'infos
                     </NuxtLink>
                 </NuxtLink>
