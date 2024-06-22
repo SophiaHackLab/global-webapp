@@ -92,19 +92,39 @@ definePageMeta({
                     <Button title="Voir les évènements >" link="/agenda" theme="primary" />
                 </div>
                 <div class="w-full flex items-center gap-5">
-                    <a href="https://www.linkedin.com/company/sophia-hack-lab/" target="_blank">
+                    <a
+                        href="https://www.linkedin.com/company/sophia-hack-lab/"
+                        target="_blank"
+                        title="Linkedin shl sophia hack lab"
+                    >
                         <IconsBrandsLinkedin class="text-white w-8 h-8" />
                     </a>
-                    <a href="https://discord.gg/27GfdV4Jd9" target="_blank">
+                    <a
+                        href="https://discord.gg/27GfdV4Jd9"
+                        target="_blank"
+                        title="Discord shl sophia hack lab"
+                    >
                         <IconsBrandsDiscord class="text-white w-8 h-8" />
                     </a>
-                    <a href="https://api.whatsapp.com/send?phone=33685926988" target="_blank">
+                    <a
+                        href="https://api.whatsapp.com/send?phone=33685926988"
+                        target="_blank"
+                        title="Whatsapp shl sophia hack lab"
+                    >
                         <IconsBrandsWhatsapp class="text-white w-8 h-8" />
                     </a>
-                    <a href="https://instagram.com/shl_sophiahacklab" target="_blank">
+                    <a
+                        href="https://instagram.com/shl_sophiahacklab"
+                        target="_blank"
+                        title="Instagram shl sophia hack lab"
+                    >
                         <IconsBrandsInstagram class="text-white w-8 h-8" />
                     </a>
-                    <a href="https://github.com/SophiaHackLab" target="_blank">
+                    <a
+                        href="https://github.com/SophiaHackLab"
+                        target="_blank"
+                        title="Github shl sophia hack lab"
+                    >
                         <IconsBrandsGithub class="text-white w-8 h-8" />
                     </a>
                 </div>
