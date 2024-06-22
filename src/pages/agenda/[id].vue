@@ -42,7 +42,7 @@ await handleGetAgenda();
             <!-- <h2 class="text-lg lg:text-xl text-white/80">{{ agendaEvent?.subtitle }}</h2> -->
             <div class="flex gap-2 pt-2 flex-col font-medium text-white/80">
                 <div class="flex gap-2">
-                    <LucideCalendar class="w-5 h-5 min-w-5 mt-1" />
+                    <IconsCalendar class="w-5 h-5 min-w-5 mt-1" />
                     <p class="">
                         {{ weekDays[new Date(agendaEvent?.date as Date).getDay()] }}
                         {{ new Date(agendaEvent?.date as Date).getDate() }}
@@ -54,7 +54,7 @@ await handleGetAgenda();
                     </p>
                 </div>
                 <div class="flex gap-2">
-                    <LucideMapPin class="w-5 h-5 min-w-5 mt-1" />
+                    <IconsPin class="w-5 h-5 min-w-5 mt-1" />
                     <a
                         :href="'http://maps.google.com/?q=' + agendaEvent?.location"
                         target="_blank"

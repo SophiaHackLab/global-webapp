@@ -160,7 +160,7 @@ definePageMeta({
 
                     <div class="flex flex-col gap-2 pt-2 text-white font-medium">
                         <div class="flex gap-2">
-                            <LucideClock class="w-4 h-4 min-w-4 mt-1" />
+                            <IconsClock class="w-4 h-4 min-w-4 mt-1" />
                             <p class="">
                                 À
                                 <span>{{ newEventDate.getHours() }}</span
@@ -168,7 +168,7 @@ definePageMeta({
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <LucideMapPin class="w-4 h-4 min-w-4 mt-1" />
+                            <IconsPin class="w-4 h-4 min-w-4 mt-1" />
                             <input
                                 v-model="newEventLocation"
                                 type="text"
@@ -240,7 +240,7 @@ definePageMeta({
                         >
                             <template #trigger>
                                 <button class="text-red-500" title="Supprimer l'évènement">
-                                    <LucideTrash />
+                                    <IconsTrash />
                                 </button>
                             </template>
                         </Prompt>
@@ -249,7 +249,7 @@ definePageMeta({
                             class="text-blue-500"
                             title="Modifier l'évènement"
                         >
-                            <LucideEdit />
+                            <IconsEdit />
                         </button>
                     </div>
                 </div>
@@ -272,7 +272,7 @@ definePageMeta({
                     </div>
                     <div class="flex flex-col gap-2 pt-2 text-white font-medium">
                         <div class="flex gap-2">
-                            <LucideClock class="w-4 h-4 min-w-4 mt-1" />
+                            <IconsClock class="w-4 h-4 min-w-4 mt-1" />
                             <p class="">
                                 À
                                 {{ new Date(agendaEvent.date).getHours() }}:{{
@@ -281,7 +281,7 @@ definePageMeta({
                             </p>
                         </div>
                         <div class="flex gap-2">
-                            <LucideMapPin class="w-4 h-4 min-w-4 mt-1" />
+                            <IconsPin class="w-4 h-4 min-w-4 mt-1" />
                             <p class="">
                                 {{ truncate(agendaEvent.location, 70) }}
                             </p>

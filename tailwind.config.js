@@ -45,13 +45,13 @@ export default {
                 },
                 typing_pulse: {
                     "0%": {
-                        opacity: "0",
+                        "border-color": "transparent",
                     },
                     "50%": {
-                        opacity: "1",
+                        "border-color": "white",
                     },
                     "100%": {
-                        opacity: "0",
+                        "border-color": "transparent",
                     },
                 },
             },

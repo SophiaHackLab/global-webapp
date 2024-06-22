@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import { config } from "md-editor-v3";
-import { EditorView } from "@codemirror/view";
-
 const head = {
     title: "SHL - Sophia HackLab",
     link: [{ id: "favicon", rel: "icon", href: "/favicon.ico" }],

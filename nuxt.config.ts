@@ -29,14 +29,7 @@ export default defineNuxtConfig({
         },
     },
     css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
-    modules: [
-        "@vueuse/nuxt",
-        "@pinia/nuxt",
-        "@nuxtjs/tailwindcss",
-        "@tresjs/nuxt",
-        "@nuxt/image",
-        "nuxt-lucide-icons",
-    ],
+    modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss", "@tresjs/nuxt", "@nuxt/image"],
     pinia: {
         autoImports: ["defineStore", "storeToRefs"],
     },

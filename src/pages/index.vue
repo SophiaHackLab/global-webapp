@@ -75,15 +75,12 @@ definePageMeta({
                                 >HACKERSPACE</a
                             >.
                             <br />
-                            <span class="">
-                                Un environnement pour des projets
-
-                                <span
-                                    class="after:h-[40px] after:w-3 after:bg-white after:absolute after:-right-3.5 relative after:animate-typingpulse"
-                                >
-                                    techniques et créatifs.
+                            <p>
+                                Un environnement pour des projets techniques et
+                                <span class="relative border-r-8 border-white animate-typingpulse">
+                                    créatifs.
                                 </span>
-                            </span>
+                            </p>
                         </h1>
                         <p class="text-lg text-left mt-5 text-white/80 w-4/5">
                             À Sophia-Antipolis.<br />

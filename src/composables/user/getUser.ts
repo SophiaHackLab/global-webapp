@@ -6,6 +6,7 @@ export default async function getUser() {
         headers: {
             Authorization: `Bearer ${token}`,
         },
+        retry: 0,
     }).catch((error) => {
         console.log(error?.data);
         if ([404, 401].includes(error?.data?.statusCode)) logout();

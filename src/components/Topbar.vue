@@ -28,7 +28,6 @@ const menu = ref([
 onMounted(() => {
     getEvents().then((events) => {
         if (events) {
-            console.log(events);
             newEventCounts.value = events?.filter(
                 (event: AgendaEvent) => new Date(event.date).getTime() > new Date().getTime(),
             )?.length;
@@ -68,8 +67,8 @@ watch(
                     <NuxtImg src="/logo_rounded.png" width="50" height="50" class="w-full h-full" />
                 </NuxtLink>
                 <button @click="toggleMenu" class="lg:hidden text-white font-bold text-2xl p-2">
-                    <LucideX color="white" :size="28" v-if="isMenuOpen" />
-                    <LucideMenu color="white" :size="28" v-else />
+                    <IconsCross color="white" :size="28" v-if="isMenuOpen" />
+                    <IconsMenu color="white" :size="28" v-else />
                 </button>
             </div>
             <div
