@@ -51,7 +51,7 @@ defineExpose({
                 />
             </div>
             <div class="flex flex-col gap-1">
-                <label for="neweventsubtitle" class="text-white/70">Sous-titre</label>
+                <label for="neweventsubtitle" class="text-white/70">Sous-titre (SEO)</label>
                 <input
                     id="neweventsubtitle"
                     type="text"

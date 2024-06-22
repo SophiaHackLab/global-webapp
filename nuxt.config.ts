@@ -24,6 +24,9 @@ export default defineNuxtConfig({
         "/agenda": {
             swr: true,
         },
+        "/agenda/:id": {
+            ssr: true,
+        },
         "/login": {
             redirect: "/auth/login",
         },

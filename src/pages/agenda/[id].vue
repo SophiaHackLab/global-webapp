@@ -24,6 +24,16 @@ const handleGetAgenda = async () => {
 };
 
 await handleGetAgenda();
+console.log(agendaEvent.value?.name);
+useHead({
+    title: agendaEvent.value?.name,
+    meta: [
+        {
+            name: "description",
+            content: agendaEvent.value?.subtitle,
+        },
+    ],
+});
 </script>
 
 <template>

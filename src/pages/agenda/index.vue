@@ -85,6 +85,10 @@ if (user?.id) {
 definePageMeta({
     middleware: "auth",
 });
+
+useHead({
+    title: "Nos évènements", 
+});
 </script>
 
 <template>
