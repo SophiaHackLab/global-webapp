@@ -22,13 +22,13 @@ export const useUserStore = defineStore("user", {
             this.token = newToken;
         },
         logout() {
-            if (!isClient) return
+           /*  if (!isClient) return
             this.token = null
             this.user = null;
 
             useLocalStorage('session', null)
 
-            useRouter().replace('/')
+            useRouter().replace('/') */
         },
     },
     hydrate(storeState, initialState) {

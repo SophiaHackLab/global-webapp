@@ -21,6 +21,9 @@ export default defineNuxtConfig({
         "/": {
             prerender: true,
         },
+        "/agenda": {
+            swr: true,
+        },
         "/login": {
             redirect: "/auth/login",
         },

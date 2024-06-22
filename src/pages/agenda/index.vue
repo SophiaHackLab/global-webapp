@@ -7,6 +7,7 @@ import deleteAgendaEvent from "~/composables/event/deleteEvent";
 import getEvents from "~/composables/event/getEvents";
 import { addZero, monthNames, truncate, weekDays } from "~/composables/utils/format";
 
+const { user }= useUserStore();
 const router = useRouter();
 const newsCookie = useCookie("news", {
     expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 30 * 12),
@@ -69,23 +70,17 @@ const generateEventUrl = (event: AgendaEvent) => {
         .slice(0, 50)}`;
 };
 
-let user: User | null;
+isGlobalLoading.value = true;
+const result = await getEvents();
+isGlobalLoading.value = false;
+if (result && result?.length) {
+    events.value = result;
+}
 
-onMounted(async () => {
-    const store = useUserStore();
-    user = store.user;
+if (user?.id) {
+    if (!newsCookie.value) newsCookie.value = "true";
+}
 
-    isGlobalLoading.value = true;
-    const result = await getEvents();
-    isGlobalLoading.value = false;
-    if (result && result?.length) {
-        events.value = result;
-    }
-
-    if (user?.id) {
-        if (!newsCookie.value) newsCookie.value = "true";
-    }
-});
 
 definePageMeta({
     middleware: "auth",
