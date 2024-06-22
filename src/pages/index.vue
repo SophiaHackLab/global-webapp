@@ -68,6 +68,7 @@ definePageMeta({
                             width="100"
                             height="100"
                             class="w-44 h-44"
+                            alt="Logo rounded shl sophia hack lab"
                         />
                         <h1 class="text-4xl text-left leading-tight">
                             Le SHL est un

@@ -28,6 +28,8 @@ const button_type = () => {
             'bg-white  text-black whitespace-nowrap': props.theme == 'primary',
             'bg-white/10 text-white pointer-events-none': props.disabled,
         }"
+        :title="props.title"
+        :aria-label="props.title"
     >
         {{ props.title }}
     </component>

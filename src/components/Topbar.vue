@@ -69,7 +69,7 @@ watch(
                     to="/"
                     class="text-white font-normal text-2xl text-shadow shadow-white w-fit"
                 >
-                    <NuxtImg src="/logo_rounded.png" width="50" height="50" class="w-full h-full" />
+                    <NuxtImg src="/logo_rounded.png" width="50" height="50" alt="Logo rounded shl sophia hack lab" class="w-full h-full" />
                 </NuxtLink>
                 <button @click="toggleMenu" class="lg:hidden text-white font-bold text-2xl p-2">
                     <IconsCross color="white" :size="28" v-if="isMenuOpen" />
