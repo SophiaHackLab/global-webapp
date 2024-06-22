@@ -8,7 +8,6 @@ export default async function sendSendOTPEmail(email: string) {
             Authorization: `Bearer ${localStorage.getItem("session")}`,
         },
     }).catch((error) => {
-        console.log(error.data);
         return error.data;
     });
 

@@ -8,7 +8,6 @@ export default async function createAgendaEvent(data: AgendaEvent) {
         },
         body: data,
     }).catch((error) => {
-        console.log(error?.data);
         if ([404, 401].includes(error?.data?.statusCode)) logout();
         return error?.data;
     });

@@ -75,6 +75,7 @@ watch(
                         height="50"
                         alt="Logo rounded shl sophia hack lab"
                         class="w-full h-full"
+                        preload
                     />
                 </NuxtLink>
                 <button

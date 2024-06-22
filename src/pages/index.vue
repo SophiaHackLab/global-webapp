@@ -64,6 +64,7 @@ definePageMeta({
                     <div class="flex flex-col">
                         <!--  <p class="uppercase mb-2">BIENVENUE</p> -->
                         <NuxtImg
+                            preload
                             src="/logo_rounded.png"
                             width="100"
                             height="100"

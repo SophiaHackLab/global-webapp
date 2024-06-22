@@ -13,7 +13,6 @@ const fetchRepos = async () => {
         })
         .catch((error) => {
             isErrored.value = true;
-            console.error("There has been a problem with your fetch operation:", error);
         });
     if (response)
         all_repos.value = response.filter(

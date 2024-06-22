@@ -24,7 +24,6 @@ const handleGetAgenda = async () => {
 };
 
 await handleGetAgenda();
-console.log(agendaEvent.value?.name);
 useHead({
     title: agendaEvent.value?.name,
     meta: [

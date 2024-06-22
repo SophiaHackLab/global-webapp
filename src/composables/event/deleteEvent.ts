@@ -10,7 +10,6 @@ export default async function deleteAgendaEvent(eventId: string) {
             },
         },
     ).catch((error) => {
-        console.log(error?.data);
         if ([404, 401].includes(error?.data?.statusCode)) logout();
         return error?.data;
     });
