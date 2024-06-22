@@ -55,7 +55,7 @@ useHead({
             <div class="flex gap-2 pt-2 flex-col font-medium text-white/70">
                 <div class="flex gap-2.5">
                     <IconsCalendar class="w-5 h-5 min-w-5 mt-0.5" />
-                    <p class="text-sm">
+                    <time :datetime="new Date(agendaEvent?.date as Date).toString()" class="text-sm">
                         {{ weekDays[new Date(agendaEvent?.date as Date).getDay()] }}
                         {{ new Date(agendaEvent?.date as Date).getDate() }}
                         {{ monthNames[new Date(agendaEvent?.date as Date).getMonth()] }}
@@ -63,7 +63,7 @@ useHead({
                         À {{ new Date(agendaEvent?.date as Date).getHours() }}:{{
                             addZero(new Date(agendaEvent?.date as Date).getMinutes())
                         }}
-                    </p>
+                    </time>
                 </div>
                 <div class="flex gap-2.5">
                     <IconsPin class="w-5 h-5 min-w-5 mt-0.5" />
