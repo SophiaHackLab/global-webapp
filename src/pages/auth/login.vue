@@ -38,7 +38,7 @@ const login = async (e: any) => {
     if (result.statusCode && result.statusCode !== 200) {
         globalError.value = result.message;
     } else {
-        /*  localStorage.setItem("session", result.access_token); */
+        localStorage.setItem("session", result.access_token);
         getUser();
         if (route.query.redirect) window.location.href = route.query.redirect as string;
         else window.location.href = "/";

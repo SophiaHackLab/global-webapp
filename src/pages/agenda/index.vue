@@ -99,7 +99,6 @@ definePageMeta({
         >
             Nos évènements
         </h1>
-        {{ user }}
         <Button
             v-if="!user && !newsCookie"
             title="S'inscrire à la newsletter"
@@ -132,7 +131,7 @@ definePageMeta({
             </Prompt>
         </div>
 
-        <div class="w-full flex flex-col items-center gap-5 h-full mt-5">
+        <div class="w-full flex flex-col items-center gap-5 h-full">
             <div
                 v-for="agendaEvent in events.sort(
                     (a, b) => +!isEventPassed(b.date) - +!isEventPassed(a.date),

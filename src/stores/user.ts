@@ -1,25 +1,37 @@
-import { client } from "process";
+import { isClient, type RemovableRef } from "@vueuse/core";
 
-export const useUserStore = defineStore("user", () => {
-    const router = useRouter();
+export const useUserStore = defineStore("user", {
+    state: (): {
+        user: User | null;
+        token: any;
+    } => ({
+        user: null,
+        token: useLocalStorage('session', null)
+    }),
+    getters: {
+        userEntity: (state) => state.user,
+        tokenEntity: (state) => state.token,
+    },
+    actions: {
+        setUser(newUser: User) {
+            if (!newUser) return;
+            this.user = newUser;
+        },
+        setToken(newToken: string) {
+            if (!newToken) return;
+            this.token = newToken;
+        },
+        logout() {
+            if (!isClient) return
+            this.token = null
+            this.user = null;
 
-    const user = ref<User | null>(null);
+            useLocalStorage('session', null)
 
-    const setUser = (newUser: User) => {
-        if (!newUser) return;
-        user.value = newUser;
-    };
-
-    const logout = () => {
-        localStorage.removeItem("session");
-        user.value = null;
-
-        window.location.reload();
-    };
-
-    return {
-        user,
-        setUser,
-        logout,
-    };
+            useRouter().replace('/')
+        },
+    },
+    hydrate(storeState, initialState) {
+        storeState.token = useLocalStorage('session', initialState.token)
+    }
 });

@@ -18,6 +18,9 @@ export default defineNuxtConfig({
         },
     },
     routeRules: {
+        "/": {
+            prerender: true,
+        },
         "/login": {
             redirect: "/auth/login",
         },
@@ -32,5 +35,6 @@ export default defineNuxtConfig({
     modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss", "@tresjs/nuxt", "@nuxt/image"],
     pinia: {
         autoImports: ["defineStore", "storeToRefs"],
+        
     },
 });

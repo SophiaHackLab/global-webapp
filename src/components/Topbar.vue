@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import getEvents from "~/composables/event/getEvents";
 
-const { user, logout } = useUserStore();
+const { user } = useUserStore();
 const route = useRoute();
 const isMenuOpen = ref(false);
 const newEventCounts = ref(0);
@@ -12,6 +12,11 @@ const toggleMenu = () => {
 
 const closeMenu = () => {
     isMenuOpen.value = false;
+};
+
+const logout = () => {
+    localStorage.removeItem("session");
+    window.location.href = "/";
 };
 
 const menu = ref([

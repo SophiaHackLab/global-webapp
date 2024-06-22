@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import getUser from "~/composables/user/getUser";
 
-onBeforeMount(async () => {
-    await getUser();
-});
+await getUser();
 </script>
 
 <template>
