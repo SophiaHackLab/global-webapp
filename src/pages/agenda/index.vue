@@ -99,6 +99,7 @@ definePageMeta({
 
 <template>
     <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5">
+        {{ user ?? '' }}
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10 mb-5"
         >
@@ -127,7 +128,7 @@ definePageMeta({
         />
         <div class="w-full flex flex-col items-center gap-5 h-full">
             <div v-if="eventCreationOpened" class="flex items-center w-full gap-5">
-                <div class="flex flex-col items-center justify-center w-12 md:w-20">
+                <div class="flex flex-col items-center justify-center w-12 md:w-24">
                     <p class="text-2xl md:text-4xl font-bold text-white">
                         {{ newEventDate.getDate() }}
                     </p>
@@ -208,7 +209,7 @@ definePageMeta({
                         new Date(agendaEvent.date).getTime() < new Date().getTime(),
                 }"
             >
-                <div class="flex flex-col items-center justify-center w-12 md:w-20">
+                <div class="flex flex-col items-center justify-center w-12 md:w-24">
                     <p
                         v-if="new Date(agendaEvent.date).getTime() > new Date().getTime()"
                         class="text-lg md:text-xl text-white/80"
