@@ -1,52 +1,49 @@
 <script setup lang="ts">
 const gallery = ref([
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQFHLHpu3r9cgQ/feedshare-shrink_1280/0/1714973047672?e=1719446400&v=beta&t=54FJiTaXeA1QJCr0Kg5wKXNPGqd9H7AdARSx6GgzwkA",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/TWbeRGaDYxXnGKe?file=/&fileId=1320&x=3600&y=1800&a=true",
         span_y: 2,
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQHwzA1CJ80bSw/feedshare-shrink_2048_1536/0/1714973045367?e=1719446400&v=beta&t=qNSYJCfu1IIoYzHlO6JH7ZKO0XDl3WIDZ3oR0cTikMs",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=3600&y=1800&a=true",
         span_x: 2,
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQE4k50M68L6jg/feedshare-shrink_1280/0/1714973048262?e=1719446400&v=beta&t=8v9Umq9r1_lRkFSxL8rH6C5YlJ7Kq4ob4pRztu7DyXU",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4E05AQE6W9EcDjGQ4Q/videocover-low/0/1710353790315?e=1717344000&v=beta&t=bCNdS13bxEM3qF613bG8yVNW8A9Bk70Y0cqMwqi6NQs",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQFaNkLt1KP0yw/feedshare-shrink_2048_1536/0/1703060882428?e=1719446400&v=beta&t=KTO3o0cosy1-Tda2rSAUE4NFpuFM8t0q1AKmEeNutcM",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/Ma5ajqgYAxBKtWP?file=/&fileId=1320&x=3600&y=1800&a=true",
         span_x: 2,
         span_y: 2,
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQEbcoWKta1lYA/feedshare-shrink_1280/0/1701765040370?e=1719446400&v=beta&t=tc3CFsDcQqCrAFT-YsHxbU1r_AU2q95mqKM71yC23M8",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/P67JoGJCy3LWMyc?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQETnkRCz4SIZA/feedshare-shrink_2048_1536/0/1703060878959?e=1719446400&v=beta&t=CVi9oWsHgGfidsEv0aTw7S5GYFsdIUEmLQeaVOYFrlg",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/8XRHne4NpXRXqdj?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQHvvNELVsXw4w/feedshare-shrink_1280/0/1703060885086?e=1719446400&v=beta&t=-SFkOe1PndyA8MCXt_gAdQZOf6esVjFOSloQW5tDArc",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/nMdHwDedRL5QzHe?file=/&fileId=1320&x=3600&y=1800&a=true",
         span_y: 2,
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQFe-NCLa1GQzA/feedshare-shrink_2048_1536/0/1703060878664?e=1719446400&v=beta&t=aCHv19sWBRJ0Xyw9hMFW02zth52IBdraeMa2v0AUsBc",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/pdX9kkgr7ekoKHe?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQF3-OsO-A4h5g/feedshare-shrink_1280/0/1714973047483?e=1719446400&v=beta&t=Z7n-qsT5wPRhd9PazyoL2mtBg9RlN3ybIe2z_3EIbcA",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/befESEAbSiziifi?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQEODpvTdvlRKg/feedshare-shrink_2048_1536/0/1703060878692?e=1719446400&v=beta&t=SIg7nH0H3ACbXKAce1yrKFTwZ3TZtpixr8C6N59vLr0",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/84DWGctKcsDFgcW?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQHXAz0GIkh2_Q/feedshare-shrink_2048_1536/0/1703060878475?e=1719446400&v=beta&t=KPh1eFsMbUMuX_YCBnLo8mI_-S2RiBJbpf4V-4T8o3w",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/q7Q6Ycbmo4gHaaH?file=/&fileId=1320&x=3600&y=1800&a=true",
     },
     {
-        src: "https://media.licdn.com/dms/image/D4D22AQGtbQiCi-nfGA/feedshare-shrink_2048_1536/0/1703060878723?e=1719446400&v=beta&t=T885iydlmcc0Tk80TZdTKpVosr44lmAJQCrcjnRc8Qw",
+        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/9SjsN9LYJ598LbX?file=/&fileId=1320&x=3600&y=1800&a=true",
         span_x: 2,
-    },
-    {
-        src: "https://media.licdn.com/dms/image/D4D22AQHz-U0AYiLt2A/feedshare-shrink_1280/0/1714973049100?e=1719446400&v=beta&t=p4PwIOkLuVHpv29z8NXJbJCib91t7u3VZYwUGdhaXS4",
     },
 ]);
 
@@ -98,25 +95,25 @@ definePageMeta({
                 </div>
                 <div class="w-full flex items-center gap-5">
                     <a href="https://www.linkedin.com/company/sophia-hack-lab/" target="_blank">
-                        <IconsBrandsLinkedin class="text-white w-6 h-6" />
+                        <IconsBrandsLinkedin class="text-white w-8 h-8" />
                     </a>
                     <a href="https://discord.gg/27GfdV4Jd9" target="_blank">
-                        <IconsBrandsDiscord class="text-white w-6 h-6" />
+                        <IconsBrandsDiscord class="text-white w-8 h-8" />
                     </a>
                     <a href="https://api.whatsapp.com/send?phone=33685926988" target="_blank">
-                        <IconsBrandsWhatsapp class="text-white w-6 h-6" />
+                        <IconsBrandsWhatsapp class="text-white w-8 h-8" />
                     </a>
                     <a href="https://instagram.com/shl_sophiahacklab" target="_blank">
-                        <IconsBrandsInstagram class="text-white w-6 h-6" />
+                        <IconsBrandsInstagram class="text-white w-8 h-8" />
                     </a>
                     <a href="https://github.com/SophiaHackLab" target="_blank">
-                        <IconsBrandsGithub class="text-white w-6 h-6" />
+                        <IconsBrandsGithub class="text-white w-8 h-8" />
                     </a>
                 </div>
             </div>
             <div class="w-full md:w-1/2 px-5 md:px-0">
                 <div
-                    class="grid grid-flow-row grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 w-full max-h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
+                    class="grid grid-flow-row grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 w-full md:max-h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
                 >
                     <div
                         v-for="(image, index) in gallery"

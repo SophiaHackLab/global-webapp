@@ -31,7 +31,7 @@ definePageMeta({
 </script>
 
 <template>
-    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full md:min-h-screen max-w-7xl">
+    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl">
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10"
         >

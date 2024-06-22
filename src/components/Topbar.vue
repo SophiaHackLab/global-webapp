@@ -25,21 +25,22 @@ const menu = ref([
     { name: "Contact", link: "/contact" },
 ]);
 
-onMounted(async () => {
-    const events: AgendaEvent[] | undefined = await getEvents();
-    if (events) {
-        console.log(events);
-        newEventCounts.value = events?.filter(
-            (event) => new Date(event.date).getTime() > new Date().getTime(),
-        )?.length;
+onMounted(() => {
+    getEvents().then((events) => {
+        if (events) {
+            console.log(events);
+            newEventCounts.value = events?.filter(
+                (event: AgendaEvent) => new Date(event.date).getTime() > new Date().getTime(),
+            )?.length;
 
-        menu.value = menu.value.map((item) => {
-            if (item.name === "Agenda") {
-                return { ...item, badge: newEventCounts.value };
-            }
-            return item;
-        });
-    }
+            menu.value = menu.value.map((item) => {
+                if (item.name === "Agenda") {
+                    return { ...item, badge: newEventCounts.value };
+                }
+                return item;
+            });
+        }
+    });
 });
 
 watch(
