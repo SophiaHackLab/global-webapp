@@ -132,7 +132,7 @@ definePageMeta({
                         {{ newEventDate.getDate() }}
                     </p>
                     <p class="text-lg md:text-xl text-white/80">
-                        {{ monthNames[newEventDate.getMonth() - 1] }}
+                        {{ monthNames[newEventDate.getMonth()] }}
                     </p>
                 </div>
                 <div class="w-full border border-white/50 border-dashed p-4 flex flex-col gap-5">
@@ -220,7 +220,7 @@ definePageMeta({
                         {{ new Date(agendaEvent.date).getDate() }}
                     </p>
                     <p class="text-lg md:text-xl text-white/80">
-                        {{ monthNames[new Date(agendaEvent.date).getMonth() - 1] }}
+                        {{ monthNames[new Date(agendaEvent.date).getMonth()] }}
                     </p>
                     <p v-if="new Date(agendaEvent.date).getTime() < new Date().getTime()">
                         <span class="bg-white/80 text-black text-xs px-1 py-0.5 uppercase"
