@@ -34,6 +34,7 @@ const head = {
                 />
             </Head>
             <Body class="h-full w-full">
+                <NuxtLoadingIndicator color="white" />
                 <NuxtLayout>
                     <NuxtPage />
                 </NuxtLayout>

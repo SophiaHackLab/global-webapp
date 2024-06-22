@@ -1,12 +1,11 @@
 export default async function sendSendOTPEmail(email: string) {
-    const { token } = useUserStore();
     const runtimeConfig = useRuntimeConfig();
 
     const response: any = await $fetch(`${runtimeConfig.public.API_URL as string}/auth/otp`, {
         method: "POST",
         body: { email: email },
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${localStorage.getItem("session")}`,
         },
     }).catch((error) => {
         console.log(error.data);

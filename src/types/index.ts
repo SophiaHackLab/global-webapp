@@ -13,6 +13,7 @@ declare global {
         name: string;
         subtitle: string;
         description: string;
+        bannerUrl?: string;
         date: Date;
         location: string;
         externalLink?: string;

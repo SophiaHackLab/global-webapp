@@ -1,10 +1,9 @@
 export default async function getUser() {
-    const { setUser, token, logout } = useUserStore();
+    const { setUser, logout } = useUserStore();
     const runtimeConfig = useRuntimeConfig();
-    if (!token) return;
     const response: any = await $fetch(`${runtimeConfig.public.API_URL as string}/users/me`, {
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${localStorage.getItem("session")}`,
         },
         retry: 0,
     }).catch((error) => {

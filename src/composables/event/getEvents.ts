@@ -1,5 +1,5 @@
 export default async function getEvents() {
-    const { setUser, token, logout } = useUserStore();
+    const { setUser, logout } = useUserStore();
     const runtimeConfig = useRuntimeConfig();
     const response: any = await $fetch(`${runtimeConfig.public.API_URL as string}/event`, {}).catch(
         (error) => {

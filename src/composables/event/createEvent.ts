@@ -1,10 +1,10 @@
 export default async function createAgendaEvent(data: AgendaEvent) {
-    const { setUser, token, logout } = useUserStore();
+    const { setUser, logout } = useUserStore();
     const runtimeConfig = useRuntimeConfig();
     const response: any = await $fetch(`${runtimeConfig.public.API_URL as string}/event`, {
         method: "POST",
         headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${localStorage.getItem("session")}`,
         },
         body: data,
     }).catch((error) => {

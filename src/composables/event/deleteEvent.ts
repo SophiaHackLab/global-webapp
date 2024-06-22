@@ -1,12 +1,12 @@
 export default async function deleteAgendaEvent(eventId: string) {
-    const { setUser, token, logout } = useUserStore();
+    const { setUser, logout } = useUserStore();
     const runtimeConfig = useRuntimeConfig();
     const response: any = await $fetch(
         `${runtimeConfig.public.API_URL as string}/event/${eventId}`,
         {
             method: "DELETE",
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${localStorage.getItem("session")}`,
             },
         },
     ).catch((error) => {
