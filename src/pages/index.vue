@@ -65,7 +65,7 @@ definePageMeta({
                         <!--  <p class="uppercase mb-2">BIENVENUE</p> -->
                         <NuxtImg
                             preload
-                            src="/logo_rounded.png"
+                            src="/full_logo_rounded.png"
                             width="100"
                             height="100"
                             class="w-44 h-44"
