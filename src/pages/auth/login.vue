@@ -67,7 +67,7 @@ definePageMeta({
                 @focus="globalError = ''"
                 type="text"
                 placeholder="Entrez votre email"
-                class="p-2 bg-white text-black"
+                class="p-2 bg-white text-black rounded-none decoration-none outline-none"
             />
             <input
                 v-if="emailSent"
@@ -75,7 +75,7 @@ definePageMeta({
                 @focus="globalError = ''"
                 type="text"
                 placeholder="Code magique"
-                class="p-2 bg-white text-black"
+                class="p-2 bg-white text-black rounded-none decoration-none outline-none"
             />
             <Button
                 v-if="!emailSent"
