@@ -57,7 +57,8 @@ definePageMeta({
             SE CONNECTER
         </h1>
         <p v-if="emailSent" class="text-white text-center">
-            Un code magique a été envoyé à votre email
+            Un code magique a été envoyé à votre email :<br />
+            <span class="font-bold">{{ email }}</span>
         </p>
         <form class="flex flex-col gap-2 w-80">
             <input

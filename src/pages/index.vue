@@ -60,9 +60,8 @@ definePageMeta({
             <div
                 class="full md:w-1/2 flex flex-col gap-8 pt-32 md:pt-0 justify-between pl-5 md:pl-20"
             >
-                <div class="flex flex-col gap-8">
+                <div class="flex flex-col gap-8 max-w-3xl">
                     <div class="flex flex-col">
-                        <!--  <p class="uppercase mb-2">BIENVENUE</p> -->
                         <div class="w-24 md:w-32 3xl:w-36 py-10 aspect-[0.76]">
                             <NuxtImg
                                 preload
