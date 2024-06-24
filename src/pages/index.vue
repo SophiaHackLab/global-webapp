@@ -63,7 +63,7 @@ definePageMeta({
                 <div class="flex flex-col gap-8">
                     <div class="flex flex-col">
                         <!--  <p class="uppercase mb-2">BIENVENUE</p> -->
-                        <div class="w-32 3xl:w-36 py-10 aspect-[0.76]">
+                        <div class="w-24 md:w-32 3xl:w-36 py-10 aspect-[0.76]">
                             <NuxtImg
                                 preload
                                 src="/logo.png"
@@ -71,7 +71,7 @@ definePageMeta({
                                 alt="Logo rounded shl sophia hack lab"
                             />
                         </div>
-                        <h1 class="text-4xl text-left leading-tight">
+                        <h1 class="text-3xl md:text-4xl text-left leading-tight">
                             Le SHL est un
                             <a href="https://fr.wikipedia.org/wiki/Hackerspace" target="_blank"
                                 >HACKERSPACE</a
