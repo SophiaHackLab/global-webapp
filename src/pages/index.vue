@@ -63,13 +63,11 @@ definePageMeta({
                 <div class="flex flex-col gap-8">
                     <div class="flex flex-col">
                         <!--  <p class="uppercase mb-2">BIENVENUE</p> -->
-                        <div class="w-44 py-10 aspect-[0.6]">
+                        <div class="w-36 py-10 aspect-[0.76]">
                             <NuxtImg
                                 preload
                                 src="/logo.png"
-                                width="258"
-                                height="339"
-                                class="h-full w-full"
+                                class="w-full object-contain"
                                 alt="Logo rounded shl sophia hack lab"
                             />
                         </div>
