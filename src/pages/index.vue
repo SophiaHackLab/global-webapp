@@ -83,7 +83,7 @@ definePageMeta({
                                 </span>
                             </p>
                         </h1>
-                        <p class="text-lg text-left mt-5 text-white/80 w-4/5">
+                        <p class="text-lg text-left mt-5 text-white/70 w-4/5">
                             À Sophia-Antipolis.<br />
                             Géré collaborativement par ses membres.<br />
                             À but non lucratif.

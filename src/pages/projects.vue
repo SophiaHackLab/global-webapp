@@ -47,14 +47,14 @@ definePageMeta({
             >
                 <div class="flex flex-col gap-5">
                     <h2 class="text-xl font-bold">{{ repo.name }}</h2>
-                    <p class="text-white/80">{{ repo.description }}</p>
+                    <p class="text-white/70">{{ repo.description }}</p>
                 </div>
                 <a :href="repo.html_url" target="_blank" class="text-blue-500">Voir le projet</a>
             </div>
         </div>
         <div v-else-if="isErrored" class="text-center mt-10">
             <h2 class="text-2xl">Une erreur est survenue</h2>
-            <p class="text-white/80">Veuillez réessayer plus tard</p>
+            <p class="text-white/70">Veuillez réessayer plus tard</p>
         </div>
         <div v-else class="text-center mt-10">
             <h2 class="text-2xl">Chargement...</h2>

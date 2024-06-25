@@ -14,6 +14,7 @@ declare global {
         subtitle: string;
         description: string;
         bannerUrl?: string;
+        public: boolean;
         date: Date;
         location: string;
         externalLink?: string;

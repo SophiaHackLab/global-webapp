@@ -34,7 +34,7 @@ definePageMeta({
             </div>
 
             <div class="flex flex-col items-center gap-5 max-w-lg">
-                <p class="text-white/80 text-center">
+                <p class="text-white/70 text-center">
                     Pour nous contacter, vous pouvez nous retrouver sur les réseaux sociaux ou nous
                     envoyer un mail à l'adresse suivante :
                 </p>

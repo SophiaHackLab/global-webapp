@@ -13,7 +13,7 @@ definePageMeta({
                 >
                     A propos du SHL
                 </h1>
-                <p class="text-white/80 text-left">
+                <p class="text-white/70 text-left">
                     Le SHL est un hackerspace, une communauté d'ingénieurs, d'artistes, de
                     scientifiques, d'entrepreneurs et d'autres personnes créatives qui partagent un
                     espace de travail et de socialisation. N'hésitez pas à venir voir par vous-même
@@ -22,7 +22,7 @@ definePageMeta({
 
                 <div class="flex flex-col gap-2">
                     <h2 class="text-white text-lg font-medium text-left">Adhésion au SHL</h2>
-                    <p class="text-white/80 text-left">
+                    <p class="text-white/70 text-left">
                         Nous sommes une association à but non lucratif et sans le soutien de nos
                         membres, nous cesserions d'exister ! L'adhésion normale est de 180 euros par
                         an pour un accès illimité à l'espace.
@@ -31,7 +31,7 @@ definePageMeta({
 
                 <div class="flex flex-col gap-2">
                     <h2 class="text-white text-lg font-medium text-left">Pour devenir membre</h2>
-                    <p class="text-white/80 text-left">
+                    <p class="text-white/70 text-left">
                         Venez plusieurs fois aux soirées Open Tuesday ou à nos événements Open Lab.
                         Faites connaissance avec quelques membres, parlez de vos centres d'intérêt.
                         Remplissez le formulaire d'adhésion. Trouvez deux parrains pour signer votre
@@ -45,7 +45,7 @@ definePageMeta({
 
                 <div class="flex flex-col gap-2">
                     <h2 class="text-white text-lg font-medium text-left">Politique du SHL</h2>
-                    <p class="text-white/80 text-left">
+                    <p class="text-white/70 text-left">
                         Lorsque vous devenez membre du SHL, vous acceptez de suivre
                         quelques règles simples.
                     </p>

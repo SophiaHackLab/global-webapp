@@ -7,7 +7,7 @@ import deleteAgendaEvent from "~/composables/event/deleteEvent";
 import getEvents from "~/composables/event/getEvents";
 import { addZero, monthNames, truncate, weekDays } from "~/composables/utils/format";
 
-const { user }= useUserStore();
+const { user } = useUserStore();
 const router = useRouter();
 const newsCookie = useCookie("news", {
     expires: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 30 * 12),
@@ -33,6 +33,7 @@ const handleCreateEvent = async (id?: string) => {
         subtitle: form.subtitle?.value,
         description: form.description?.value,
         location: form.location?.value,
+        public: form.public?.value,
         bannerUrl: form.bannerUrl?.value,
         date: form.date?.value,
     });
@@ -81,13 +82,12 @@ if (user?.id) {
     if (!newsCookie.value) newsCookie.value = "true";
 }
 
-
 definePageMeta({
     middleware: "auth",
 });
 
 useHead({
-    title: "Nos évènements", 
+    title: "Nos évènements",
 });
 </script>
 
@@ -140,16 +140,19 @@ useHead({
             >
                 <div
                     class="flex flex-row gap-2 md:gap-0 md:flex-col items-center justify-between md:justify-center w-full md:w-32"
+                    :class="{
+                        'opacity-50': isEventPassed(agendaEvent.date),
+                    }"
                 >
-                    <div class="flex flex-row md:flex-col items-center gap-2 md:gap-0 mb-2">
-                        <p class="text-lg md:text-xl text-white/80">
+                    <div class="flex flex-row md:flex-col items-center md:mb-2">
+                        <p class="text-lg md:text-xl text-white/70">
                             {{ weekDays[new Date(agendaEvent.date).getDay()] }}
                         </p>
 
                         <p class="text-lg md:text-4xl font-bold text-white">
                             {{ new Date(agendaEvent.date).getDate() }}
                         </p>
-                        <p class="text-lg md:text-xl text-white/80">
+                        <p class="text-lg md:text-xl text-white/70">
                             {{ monthNames[new Date(agendaEvent.date).getMonth()] }}
                         </p>
                     </div>
@@ -194,7 +197,7 @@ useHead({
                         >
                             {{ agendaEvent.name }}
                         </NuxtLink>
-                        <p class="text-sm md:text-base font-normal text-white/80 line-clamp-2">
+                        <p class="text-sm md:text-base font-normal text-white/70 line-clamp-2">
                             {{ agendaEvent.subtitle }}
                         </p>
                     </div>
@@ -215,42 +218,64 @@ useHead({
                             </p>
                         </div>
                     </div>
-                    <div class="flex gap-3 flex-col md:flex-row justify-between w-full">
-                        <div v-if="user?.roles.includes('ADMIN')" class="flex mt-2 gap-5">
-                            <Prompt
-                                title="Supprimer l'évènement"
-                                subtitle="Cette action est irréversible."
-                                :action="() => deleteEvent(agendaEvent)"
+                    <div
+                        class="flex gap-3 flex-col md:flex-row justify-between items-center w-full"
+                    >
+                        <div class="flex gap-5 flex-col md:flex-row items-center">
+                            <div class="flex gap-2">
+                                <IconsLock
+                                    v-if="!agendaEvent.public"
+                                    class="w-4 h-4 min-w-4 mt-1"
+                                />
+                                <IconsBeer v-else class="w-4 h-4 min-w-4 mt-1" />
+                                <p
+                                    class="text-sm md:text-base text-white/70"
+                                    :class="{
+                                        'text-red-400': !agendaEvent.public,
+                                    }"
+                                >
+                                    {{ agendaEvent.public ? "Public" : "Réservé aux membres" }}
+                                </p>
+                            </div>
+                            <div
+                                v-if="user?.roles.includes('ADMIN')"
+                                class="flex mt-2 md:mt-0 gap-5"
                             >
-                                <template #trigger>
-                                    <button
-                                        class="text-red-500 flex items-center gap-1.5 hover:underline"
-                                        title="Supprimer l'évènement"
-                                    >
-                                        <IconsTrash />
-                                        <p class="text-sm">Supprimer</p>
-                                    </button>
-                                </template>
-                            </Prompt>
-                            <Prompt
-                                title="Modifier l'évènement"
-                                custom
-                                actionTitle="Modifier l'évènement"
-                                :action="() => handleCreateEvent(agendaEvent.id)"
-                            >
-                                <template #trigger>
-                                    <button
-                                        class="text-blue-500 flex items-center gap-1.5 hover:underline"
-                                        title="Modifier l'évènement"
-                                    >
-                                        <IconsEdit />
-                                        <p class="text-sm">Modifier</p>
-                                    </button>
-                                </template>
-                                <template #content>
-                                    <EventEditForm ref="formContent" :event="agendaEvent" />
-                                </template>
-                            </Prompt>
+                                <Prompt
+                                    title="Supprimer l'évènement"
+                                    subtitle="Cette action est irréversible."
+                                    :action="() => deleteEvent(agendaEvent)"
+                                >
+                                    <template #trigger>
+                                        <button
+                                            class="text-red-500 flex items-center gap-1.5 hover:underline"
+                                            title="Supprimer l'évènement"
+                                        >
+                                            <IconsTrash />
+                                            <p class="text-sm">Supprimer</p>
+                                        </button>
+                                    </template>
+                                </Prompt>
+                                <Prompt
+                                    title="Modifier l'évènement"
+                                    custom
+                                    actionTitle="Modifier l'évènement"
+                                    :action="() => handleCreateEvent(agendaEvent.id)"
+                                >
+                                    <template #trigger>
+                                        <button
+                                            class="text-blue-500 flex items-center gap-1.5 hover:underline"
+                                            title="Modifier l'évènement"
+                                        >
+                                            <IconsEdit />
+                                            <p class="text-sm">Modifier</p>
+                                        </button>
+                                    </template>
+                                    <template #content>
+                                        <EventEditForm ref="formContent" :event="agendaEvent" />
+                                    </template>
+                                </Prompt>
+                            </div>
                         </div>
                         <Button
                             theme="primary"
@@ -267,7 +292,7 @@ useHead({
                 v-if="!events.length && !isGlobalLoading"
                 class="h-full flex items-center justify-center mt-20"
             >
-                <p class="text-white/80">Aucun évènement à venir</p>
+                <p class="text-white/70">Aucun évènement à venir</p>
             </div>
             <div
                 v-if="isGlobalLoading"
