@@ -90,7 +90,6 @@ defineExpose({
                         ref="newEventDateInput"
                         id="neweventdate"
                         type="datetime-local"
-                        :min="new Date().toISOString().slice(0, 16)"
                         class="px-1.5 text-white bg-white/10"
                         :value="
                             new Date(new Date(newEventDate).getTime() + 1000 * 60 * 60 * 2)
