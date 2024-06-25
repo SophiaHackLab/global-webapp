@@ -27,6 +27,10 @@ onMounted(() => {
 definePageMeta({
     middleware: "auth",
 });
+
+useHead({
+    title: "Nos projets - Sophia Hack Lab",
+});
 </script>
 
 <template>

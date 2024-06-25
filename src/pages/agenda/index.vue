@@ -56,7 +56,7 @@ definePageMeta({
 });
 
 useHead({
-    title: "Nos évènements",
+    title: "Nos évènements - Sophia Hack Lab",
 });
 </script>
 

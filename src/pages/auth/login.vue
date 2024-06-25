@@ -48,6 +48,10 @@ const login = async (e: any) => {
 definePageMeta({
     middleware: "auth",
 });
+
+useHead({
+    title: "Se connecter - Sophia Hack Lab",
+});
 </script>
 <template>
     <div class="h-screen w-full flex items-center justify-center flex-col gap-5">

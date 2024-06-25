@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const head = {
-    title: "SHL - Sophia HackLab",
+    title: "SHL - Sophia Hack Lab",
     link: [
         { id: "favicon", rel: "icon", href: "/favicon.ico" },
         {

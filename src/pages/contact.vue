@@ -5,6 +5,10 @@ const isErrored = ref(false);
 definePageMeta({
     middleware: "auth",
 });
+
+useHead({
+    title: "Nous contacter - Sophia Hack Lab",
+});
 </script>
 
 <template>
