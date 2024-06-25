@@ -6,11 +6,12 @@ const { user } = useUserStore();
 
 const props = defineProps<{
     agendaEvent: AgendaEvent;
-    handleCreateEvent: (id: string) => void;
+    handleCreateEvent: (event: AgendaEvent) => void;
     handleGetEvents: () => void;
 }>();
 
 const agendaEvent = ref(props.agendaEvent);
+const formContent = ref();
 
 const deleteEvent = async (event: AgendaEvent) => {
     if (!event.id) return;
@@ -140,7 +141,13 @@ watch(
                             title="Modifier l'évènement"
                             custom
                             actionTitle="Modifier l'évènement"
-                            :action="() => handleCreateEvent(agendaEvent.id as string)"
+                            :action="
+                                () =>
+                                    handleCreateEvent({
+                                        ...formContent.eventForm,
+                                        id: agendaEvent.id,
+                                    })
+                            "
                         >
                             <template #trigger>
                                 <button

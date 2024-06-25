@@ -21,7 +21,7 @@ const newEventLocation = ref(
     event.value?.location ||
         "SHL // Sophia Hack Lab - 2323 Chemin de Saint Bernard Space Antipolis Bat 9 06220 Vallauris, FR",
 );
-const newEventPublic = ref(!!event.value?.public);
+const newEventPublic = ref(event.value?.public === undefined ? true : !!event.value?.public);
 const newEventDate = ref(
     event.value?.date ? new Date(event.value?.date || "") : new Date(new Date().setHours(17)),
 );

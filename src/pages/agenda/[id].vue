@@ -104,7 +104,7 @@ useHead({
                     Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
             </div>
-            <div class="pt-5 mb-20">
+            <div class="pt-10 mb-20">
                 <MdPreview
                     theme="dark"
                     previewTheme="default"

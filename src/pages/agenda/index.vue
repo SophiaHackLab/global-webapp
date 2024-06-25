@@ -21,14 +21,12 @@ const events: Ref<AgendaEvent[]> = ref([]);
 const handleNewsletter = () => {
     router.push("/auth/login?redirect=/agenda");
 };
-const handleCreateEvent = async (id?: string) => {
-    if (!formContent.value) return;
-    const form =
-        (formContent.value as any)?.eventForm ||
-        (formContent.value as any)?.find((f: any) => f.eventForm.id?.value === id)?.eventForm;
-    if (!form) return;
+const handleCreateEvent = async (event?: AgendaEvent) => {
+    console.log(event);
+    if (!event) return;
+    const form = event as any;
     const result = await createAgendaEvent({
-        id: id || undefined,
+        id: event.id || undefined,
         name: form.name?.value,
         subtitle: form.subtitle?.value,
         description: form.description?.value,
@@ -37,7 +35,7 @@ const handleCreateEvent = async (id?: string) => {
         bannerUrl: form.bannerUrl?.value,
         date: form.date?.value,
     });
-    if (result) await handleGetEvents();
+    if (result) handleGetEvents();
 };
 
 const handleGetEvents = async (): Promise<AgendaEvent[]> => {
