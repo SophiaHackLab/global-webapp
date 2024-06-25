@@ -22,3 +22,11 @@ export const weekDays = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Ven
 export const truncate = (text: string, length: number) => {
     return text.length > length ? text.slice(0, length) + "..." : text;
 };
+
+
+export const isEventPassed = (date: Date) => {
+    return (
+        new Date(new Date(date).toISOString().slice(0, 10)).getTime() <
+        new Date(new Date().toISOString().slice(0, 10)).getTime()
+    );
+};
