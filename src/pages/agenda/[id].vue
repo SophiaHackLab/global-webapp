@@ -99,7 +99,10 @@ useHead({
                     height="382"
                 />
             </div>
-            <div v-else class="w-full aspect-video bg-white/10 rounded-lg">
+            <div
+                v-else-if="agendaEvent?.bannerUrl"
+                class="w-full aspect-video bg-white/10 rounded-lg"
+            >
                 <video class="w-full h-full rounded-lg" autoplay muted controls loop>
                     <source :src="agendaEvent?.bannerUrl" type="video/mp4" />
                     Votre navigateur ne supporte pas la lecture de vidéos.
