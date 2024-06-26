@@ -7,20 +7,27 @@
 
 <url>
   <loc>https://www.shl.contact</loc>
-  <lastmod>2024-06-22T21:07:15+00:00</lastmod>
+  <lastmod>2024-06-26T13:40:54+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.shl.contact/agenda</loc>
-  <lastmod>2024-06-22T21:07:15+00:00</lastmod>
+  <lastmod>2024-06-26T13:40:54+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.shl.contact/about</loc>
+  <lastmod>2024-06-26T13:40:54+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.shl.contact/projects</loc>
+  <lastmod>2024-06-26T13:40:54+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.shl.contact/contact</loc>
+  <lastmod>2024-06-26T13:40:54+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 </urlset>
