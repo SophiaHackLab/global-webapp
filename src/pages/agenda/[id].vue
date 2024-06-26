@@ -23,6 +23,14 @@ const handleGetAgenda = async () => {
     }
 };
 
+const isImgUrl = (url: string): boolean => {
+    return (
+        /\.(jpg|jpeg|png|webp|avif|gif)$/.test(url) ||
+        url.includes("data:image") ||
+        url.endsWith("/preview")
+    );
+};
+
 await handleGetAgenda();
 useHead({
     title: agendaEvent.value?.name,
@@ -50,11 +58,14 @@ useHead({
                     {{ agendaEvent?.name }}
                 </h1>
             </div>
-            <!-- <h2 class="text-lg lg:text-xl text-white/80">{{ agendaEvent?.subtitle }}</h2> -->
-            <div class="flex gap-2 pt-2 flex-col font-medium text-white/70">
+            <!-- <h2 class="text-lg lg:text-xl text-white/70">{{ agendaEvent?.subtitle }}</h2> -->
+            <div class="flex gap-2 pt-2 flex-col font-medium text-white/70 mb-2">
                 <div class="flex gap-2.5">
-                    <IconsCalendar class="w-5 h-5 min-w-5 mt-0.5" />
-                    <time :datetime="new Date(agendaEvent?.date as Date).toString()" class="text-sm">
+                    <IconsCalendar class="w-5 h-5 min-w-5 mt-0.5 text-white" />
+                    <time
+                        :datetime="new Date(agendaEvent?.date as Date).toString()"
+                        class="text-sm"
+                    >
                         {{ weekDays[new Date(agendaEvent?.date as Date).getDay()] }}
                         {{ new Date(agendaEvent?.date as Date).getDate() }}
                         {{ monthNames[new Date(agendaEvent?.date as Date).getMonth()] }}
@@ -65,7 +76,7 @@ useHead({
                     </time>
                 </div>
                 <div class="flex gap-2.5">
-                    <IconsPin class="w-5 h-5 min-w-5 mt-0.5" />
+                    <IconsPin class="w-5 h-5 min-w-5 mt-0.5 text-white" />
                     <a
                         :href="'http://maps.google.com/?q=' + agendaEvent?.location"
                         target="_blank"
@@ -74,7 +85,26 @@ useHead({
                     >
                 </div>
             </div>
-            <div class="pt-5 mb-20">
+            <div
+                class="w-full h-80"
+                v-if="agendaEvent?.bannerUrl && isImgUrl(agendaEvent?.bannerUrl)"
+            >
+                <NuxtImg
+                    :src="agendaEvent?.bannerUrl"
+                    :alt="agendaEvent?.name + ' banner'"
+                    layout="fill"
+                    object-fit="cover"
+                    width="680"
+                    height="382"
+                />
+            </div>
+            <div v-else-if="agendaEvent?.bannerUrl" class="w-full aspect-video">
+                <video class="w-full h-full" autoplay muted controls loop width="680" height="382">
+                    <source :src="agendaEvent?.bannerUrl" type="video/mp4" />
+                    Votre navigateur ne supporte pas la lecture de vidéos.
+                </video>
+            </div>
+            <div class="pt-10 mb-20">
                 <MdPreview
                     theme="dark"
                     previewTheme="default"

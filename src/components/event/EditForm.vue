@@ -21,6 +21,7 @@ const newEventLocation = ref(
     event.value?.location ||
         "SHL // Sophia Hack Lab - 2323 Chemin de Saint Bernard Space Antipolis Bat 9 06220 Vallauris, FR",
 );
+const newEventPublic = ref(event.value?.public === undefined ? true : !!event.value?.public);
 const newEventDate = ref(
     event.value?.date ? new Date(event.value?.date || "") : new Date(new Date().setHours(17)),
 );
@@ -33,6 +34,7 @@ defineExpose({
         description: newEventDescription,
         bannerUrl: newEventBannerUrl,
         location: newEventLocation,
+        public: newEventPublic,
         date: newEventDate,
     },
 });
@@ -70,6 +72,16 @@ defineExpose({
             />
         </div>
 
+        <div class="flex flex-row gap-1">
+            <label for="neweventbannerurl" class="text-white/70">Public :</label>
+            <input
+                id="neweventbannerurl"
+                type="checkbox"
+                class="text-white bg-white/10 px-2"
+                v-model="newEventPublic"
+            />
+        </div>
+
         <div class="flex flex-col gap-2 pt-2 text-white font-medium">
             <div class="flex gap-2 items-center">
                 <IconsCalendar class="w-4 h-4 min-w-4 mt-1" />
@@ -78,7 +90,6 @@ defineExpose({
                         ref="newEventDateInput"
                         id="neweventdate"
                         type="datetime-local"
-                        :min="new Date().toISOString().slice(0, 16)"
                         class="px-1.5 text-white bg-white/10"
                         :value="
                             new Date(new Date(newEventDate).getTime() + 1000 * 60 * 60 * 2)

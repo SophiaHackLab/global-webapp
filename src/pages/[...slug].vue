@@ -1,5 +1,9 @@
 <script setup lang="ts">
 const word = ref("ERREUR #404 Page introuvable");
+
+useHead({
+    title: "404 - Sophia Hack Lab",
+});
 </script>
 
 <template>

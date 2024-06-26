@@ -60,18 +60,17 @@ definePageMeta({
             <div
                 class="full md:w-1/2 flex flex-col gap-8 pt-32 md:pt-0 justify-between pl-5 md:pl-20"
             >
-                <div class="flex flex-col gap-8">
+                <div class="flex flex-col gap-8 max-w-3xl">
                     <div class="flex flex-col">
-                        <!--  <p class="uppercase mb-2">BIENVENUE</p> -->
-                        <NuxtImg
-                            preload
-                            src="/full_logo_rounded.png"
-                            width="100"
-                            height="100"
-                            class="w-44 h-44"
-                            alt="Logo rounded shl sophia hack lab"
-                        />
-                        <h1 class="text-4xl text-left leading-tight">
+                        <div class="w-24 md:w-32 3xl:w-36 py-10 aspect-[0.76]">
+                            <NuxtImg
+                                preload
+                                src="/logo.png"
+                                class="w-full object-contain"
+                                alt="Logo rounded shl sophia hack lab"
+                            />
+                        </div>
+                        <h1 class="text-3xl md:text-4xl text-left leading-tight">
                             Le SHL est un
                             <a href="https://fr.wikipedia.org/wiki/Hackerspace" target="_blank"
                                 >HACKERSPACE</a
@@ -84,7 +83,7 @@ definePageMeta({
                                 </span>
                             </p>
                         </h1>
-                        <p class="text-lg text-left mt-5 text-white/80 w-4/5">
+                        <p class="text-lg text-left mt-5 text-white/70 w-4/5">
                             À Sophia-Antipolis.<br />
                             Géré collaborativement par ses membres.<br />
                             À but non lucratif.

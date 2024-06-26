@@ -48,6 +48,10 @@ const login = async (e: any) => {
 definePageMeta({
     middleware: "auth",
 });
+
+useHead({
+    title: "Se connecter - Sophia Hack Lab",
+});
 </script>
 <template>
     <div class="h-screen w-full flex items-center justify-center flex-col gap-5">
@@ -57,7 +61,8 @@ definePageMeta({
             SE CONNECTER
         </h1>
         <p v-if="emailSent" class="text-white text-center">
-            Un code magique a été envoyé à votre email
+            Un code magique a été envoyé à votre email :<br />
+            <span class="font-bold">{{ email }}</span>
         </p>
         <form class="flex flex-col gap-2 w-80">
             <input
@@ -66,7 +71,7 @@ definePageMeta({
                 @focus="globalError = ''"
                 type="text"
                 placeholder="Entrez votre email"
-                class="p-2 bg-white text-black"
+                class="p-2 bg-white text-black rounded-none decoration-none outline-none"
             />
             <input
                 v-if="emailSent"
@@ -74,7 +79,7 @@ definePageMeta({
                 @focus="globalError = ''"
                 type="text"
                 placeholder="Code magique"
-                class="p-2 bg-white text-black"
+                class="p-2 bg-white text-black rounded-none decoration-none outline-none"
             />
             <Button
                 v-if="!emailSent"
