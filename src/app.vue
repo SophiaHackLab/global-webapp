@@ -2,6 +2,10 @@
 const head = {
     title: "SHL - Sophia Hack Lab",
     link: [
+        {
+            rel: "canonical",
+            href: "https://www.shl.contact/",
+        },
         { id: "favicon", rel: "icon", href: "/favicon.ico" },
         {
             rel: "preconnect",
@@ -11,6 +15,7 @@ const head = {
             rel: "stylesheet",
             href: "https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;700&display=swap",
         },
+
     ],
     meta: [
         {
