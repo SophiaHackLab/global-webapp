@@ -72,7 +72,7 @@ definePageMeta({
                         </div>
                         <h1 class="text-3xl md:text-4xl text-left leading-tight">
                             Le SHL est un
-                            <a href="https://fr.wikipedia.org/wiki/Hackerspace" target="_blank"
+                            <a href="https://fr.wikipedia.org/wiki/Hackerspace" hreflang="fr" target="_blank"
                                 >HACKERSPACE</a
                             >.
                             <br />
@@ -159,20 +159,20 @@ definePageMeta({
         <section id="about" class="px-5 md:px-20 flex flex-col w-full pt-24 h-full min-h-screen max-w-7xl mt-10">
         <div class="w-full flex items-center flex-col gap-12">
             <div class="flex flex-col gap-10 max-w-xl">
-                <h1
+                <h2
                     class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white"
                 >
                     A propos du SHL
-                </h1>
+                </h2>
                 <p class="text-white/70 text-left">
-                    Le SHL est un <a href="https://fr.wikipedia.org/wiki/Hackerspace" target="_blank">hackerspace</a>, une communauté d'ingénieurs, d'artistes, de
+                    Le SHL est un <a href="https://fr.wikipedia.org/wiki/Hackerspace" hreflang="fr" target="_blank">hackerspace</a>, une communauté d'ingénieurs, d'artistes, de
                     scientifiques, d'entrepreneurs et d'autres personnes créatives qui partagent un
                     espace de travail et de socialisation. N'hésitez pas à venir voir par vous-même
                     ce qu'est le SHL.
                 </p>
 
                 <div class="flex flex-col gap-2">
-                    <h2 class="text-white text-lg font-medium text-left">Adhésion au SHL</h2>
+                    <h3 class="text-white text-lg font-medium text-left">Adhésion au Sophia Hack Lab</h3>
                     <p class="text-white/70 text-left">
                         Nous sommes une association à but non lucratif et sans le soutien de nos
                         membres, nous cesserions d'exister ! L'adhésion normale est de 180 euros par
@@ -181,7 +181,7 @@ definePageMeta({
                 </div>
 
                 <div class="flex flex-col gap-2">
-                    <h2 class="text-white text-lg font-medium text-left">Pour devenir membre</h2>
+                    <h3 class="text-white text-lg font-medium text-left">Pour devenir membre</h3>
                     <p class="text-white/70 text-left">
                         Venez plusieurs fois aux soirées Open Tuesday ou à nos événements Open Lab.
                         Faites connaissance avec quelques membres, parlez de vos centres d'intérêt.
@@ -195,7 +195,7 @@ definePageMeta({
                 </div>
 
                 <div class="flex flex-col gap-2">
-                    <h2 class="text-white text-lg font-medium text-left">Politique du SHL</h2>
+                    <h3 class="text-white text-lg font-medium text-left">Politique du SHL</h3>
                     <p class="text-white/70 text-left">
                         Lorsque vous devenez membre du SHL, vous acceptez de suivre
                         quelques règles simples.

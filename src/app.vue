@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const head = {
-    title: "SHL - Sophia Hack Lab",
+    title: "SHL - Sophia Hack Lab : Un hackerspace à Sophia Antipolis",
     link: [
         {
             rel: "canonical",
@@ -21,12 +21,12 @@ const head = {
         {
             name: "description",
             content:
-                "Le SHL (Sophia Hack Lab) est un hackerspace. Un lieu géré collaborativement par ses membres. Il fournit à Sophia Antipolis un environnement pour des projets techniques-créatifs.",
+                "SHL (Sophia Hack Lab), hackerspace collaboratif basé à Sophia Antipolis. Il fournit un environnement pour des projets techniques-créatifs.",
         },
         {
             name: "keywords",
             content:
-                "SHL, Sophia Hack Lab, hackerspace, Sophia Antipolis, makerspace, hackerspace, hackerspace Sophia Antipolis, hackerspace France, hackerspace Alpes-Maritimes, hackerspace PACA, hackerspace Côte d'Azur, hackerspace French Riviera, hackerspace 06, hackerspace Vallauris, hackerspace Antibes, hackerspace Biot, hackerspace Valbonne, hackerspace Mougins, hackerspace Cannes, hackerspace Grasse, hackerspace Nice",
+                "Sophia Hack Lab, SHL, hackerspace, Sophia Antipolis, coworking, hackerspace Sophia Antipolis, hackerspace France, hackerspace Alpes-Maritimes, hackerspace PACA, hackerspace Côte d'Azur, hackerspace French Riviera, hackerspace 06, hackerspace Vallauris, hackerspace Antibes, hackerspace Biot, hackerspace Valbonne, hackerspace Mougins, hackerspace Cannes, hackerspace Grasse, hackerspace Nice",
         },
         {
             name: "author",
@@ -40,6 +40,11 @@ const head = {
             name: "theme-color",
             content: "#000000",
         },
+        {
+            name: "apple-touch-icon",
+            content: "/logo.png",
+        },
+       
     ],
 };
 
