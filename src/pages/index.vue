@@ -1,48 +1,63 @@
 <script setup lang="ts">
+const img = useImage()
+
 const gallery = ref([
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/TWbeRGaDYxXnGKe?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/TWbeRGaDYxXnGKe?file=/&fileId=1320&x=50&y=100&a=true",
         span_y: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=50&y=100&a=true",
         span_x: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/Ma5ajqgYAxBKtWP?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/Ma5ajqgYAxBKtWP?file=/&fileId=1320&x=50&y=100&a=true",
         span_x: 2,
         span_y: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/P67JoGJCy3LWMyc?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/P67JoGJCy3LWMyc?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/8XRHne4NpXRXqdj?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/8XRHne4NpXRXqdj?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/nMdHwDedRL5QzHe?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/nMdHwDedRL5QzHe?file=/&fileId=1320&x=50&y=100&a=true",
         span_y: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/pdX9kkgr7ekoKHe?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/pdX9kkgr7ekoKHe?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/befESEAbSiziifi?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/befESEAbSiziifi?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/84DWGctKcsDFgcW?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/84DWGctKcsDFgcW?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/q7Q6Ycbmo4gHaaH?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/q7Q6Ycbmo4gHaaH?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/9SjsN9LYJ598LbX?file=/&fileId=1320&x=3600&y=1800&a=true",
+        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/9SjsN9LYJ598LbX?file=/&fileId=1320&x=50&y=100&a=true",
         span_x: 2,
     },
 ]);
@@ -53,12 +68,12 @@ definePageMeta({
 </script>
 
 <template>
-    <div>
+    <div class="w-full h-full">
         <header
             class="w-full h-full md:h-screen flex flex-col md:flex-row items-center gap-10 overflow-hidden"
         >
             <div
-                class="full md:w-1/2 flex flex-col gap-8 pt-32 md:pt-0 justify-between pl-5 md:pl-20"
+                class="full md:w-1/2 md:min-w-[50%] flex flex-col gap-8 pt-32 md:pt-0 justify-between pl-5 md:pl-20"
             >
                 <div class="flex flex-col gap-8 max-w-3xl">
                     <div class="flex flex-col">
@@ -129,27 +144,31 @@ definePageMeta({
                     </a>
                 </div>
             </div>
-            <div class="w-full md:w-1/2 px-5 md:px-0">
+            <div class="w-full md:w-1/2 md:min-w-[50%] px-5 md:px-0 md:max-h-screen md:pt-24 overflow-x-auto">
                 <div
-                    class="grid grid-flow-row grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 w-full md:max-h-screen overflow-y-auto scroll-pt-28 hidden-scrollbar"
+                    class="grid grid-flow-row grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 4xl:grid-cols-5 gap-3 h-full md:max-h-[calc(100vh+24rem)] hidden-scrollbar w-full md:w-max"
                 >
                     <div
                         v-for="(image, index) in gallery"
                         :id="index.toString()"
-                        class="h-80 md:h-full w-full md:max-w-full overflow-hidden min-h-44"
+                        class=" bg-white/10  h-80 md:h-full overflow-hidden"
                         :class="{
-                            'md:col-span-2': image.span_x,
-                            'md:row-span-2': image.span_y,
-                        }"
+                            'md:col-span-2 md:!h-56 3xl:!h-72': image.span_x && !image.span_y,
+                            'md:row-span-2 md:!w-56 3xl:!w-72': image.span_y && !image.span_x,
+                            'md:!w-56 3xl:!h-72 md:!h-56 3xl:!w-72 md:aspect-square': !image.span_x && !image.span_y,
+                            'md:col-span-2 md:row-span-2 md:!w-[28.75rem] 3xl:!w-[36.75rem] md:!h-[28.75rem] 3xl:!h-[36.75rem]': image.span_x && image.span_y,
+                        }" 
                     >
                         <NuxtImg
                             loading="lazy"
-                            class="object-cover break-inside-avoid h-full w-full hover:scale-105 transition-transform duration-500 ease-in-out"
+                            preload
+                            class="object-cover h-full w-full hover:scale-105 transition-transform duration-500 ease-in-out"
                             :src="image.src"
                             alt="Sophia Hack Lab"
-                            width="500"
-                            height="500"
+                            width="3600"
+                            height="1800"
                             layout="intrinsic"
+                            :placeholder="img.placeholder"
                         />
                     </div>
                 </div>
