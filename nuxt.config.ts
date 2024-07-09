@@ -38,9 +38,15 @@ export default defineNuxtConfig({
         },
     },
     css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
-    modules: ["@vueuse/nuxt", "@pinia/nuxt", "@nuxtjs/tailwindcss", "@tresjs/nuxt", "@nuxt/image"],
+    modules: [
+        "@vueuse/nuxt",
+        "@pinia/nuxt",
+        "@nuxtjs/tailwindcss",
+        "@tresjs/nuxt",
+        "@nuxt/image",
+        "nuxt-particles",
+    ],
     pinia: {
         autoImports: ["defineStore", "storeToRefs"],
-        
     },
 });
