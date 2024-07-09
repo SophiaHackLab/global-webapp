@@ -2,14 +2,14 @@
 const isNavbarHidden = ref(false);
 
 onMounted(() => {
-    // Automatically hide the navbar after 5 seconds
-    setTimeout(() => {
-        isNavbarHidden.value = true;
-    }, 3000);
-
-    // Automatically show the navbar when the mouse is moved
-    window.addEventListener("mousemove", () => {
+    // Automatically hide the navbar after 5 seconds of inactivity of mouse
+    let timeout: any;
+    document.addEventListener("mousemove", () => {
         isNavbarHidden.value = false;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            isNavbarHidden.value = true;
+        }, 3000);
     });
 });
 </script>
