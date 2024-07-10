@@ -25,6 +25,10 @@ export default {
                 "4xl": "1920px",
             },
             keyframes: {
+                "infinite-scroll": {
+                    from: { transform: "translateX(0)" },
+                    to: { transform: "translateX(-100%)" },
+                },
                 megabounce: {
                     "0%, 100%": {
                         transform: "translateY(-344px)",
@@ -56,6 +60,7 @@ export default {
                 },
             },
             animation: {
+                "infinite-scroll": "infinite-scroll 25s linear infinite",
                 megabounce: "megabounce 2s infinite",
                 inftranslate: "inftranslate 8s infinite linear",
                 typingpulse: "typing_pulse 1s infinite",

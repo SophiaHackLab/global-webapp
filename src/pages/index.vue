@@ -1,63 +1,76 @@
 <script setup lang="ts">
-const img = useImage()
+const img = useImage();
 
 const gallery = ref([
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/TWbeRGaDYxXnGKe?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/TWbeRGaDYxXnGKe?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/TWbeRGaDYxXnGKe?file=/&fileId=1320&x=50&y=100&a=true",
         span_y: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=50&y=100&a=true",
         span_x: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/Ma5ajqgYAxBKtWP?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/Ma5ajqgYAxBKtWP?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/Ma5ajqgYAxBKtWP?file=/&fileId=1320&x=50&y=100&a=true",
         span_x: 2,
         span_y: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/P67JoGJCy3LWMyc?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/P67JoGJCy3LWMyc?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/P67JoGJCy3LWMyc?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/8XRHne4NpXRXqdj?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/8XRHne4NpXRXqdj?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/8XRHne4NpXRXqdj?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/nMdHwDedRL5QzHe?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/nMdHwDedRL5QzHe?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/nMdHwDedRL5QzHe?file=/&fileId=1320&x=50&y=100&a=true",
         span_y: 2,
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/pdX9kkgr7ekoKHe?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/pdX9kkgr7ekoKHe?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/pdX9kkgr7ekoKHe?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/befESEAbSiziifi?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/befESEAbSiziifi?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/befESEAbSiziifi?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/84DWGctKcsDFgcW?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/84DWGctKcsDFgcW?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/84DWGctKcsDFgcW?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/q7Q6Ycbmo4gHaaH?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/q7Q6Ycbmo4gHaaH?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/q7Q6Ycbmo4gHaaH?file=/&fileId=1320&x=50&y=100&a=true",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/9SjsN9LYJ598LbX?file=/&fileId=1320&x=3600&y=1800&a=true",
-        placeholder: "https://cloud.shl.contact/apps/files_sharing/publicpreview/9SjsN9LYJ598LbX?file=/&fileId=1320&x=50&y=100&a=true",
+        placeholder:
+            "https://cloud.shl.contact/apps/files_sharing/publicpreview/9SjsN9LYJ598LbX?file=/&fileId=1320&x=50&y=100&a=true",
         span_x: 2,
     },
 ]);
@@ -85,9 +98,13 @@ definePageMeta({
                                 alt="Logo rounded shl sophia hack lab"
                             />
                         </div>
-                        <h1 class="text-3xl md:text-4xl text-left leading-tight">
+                        <h1 class="text-3xl md:text-4xl font-semibold leading-tight">
                             Le SHL est un
-                            <a href="https://fr.wikipedia.org/wiki/Hackerspace" hreflang="fr" target="_blank"
+                            <a
+                                href="https://fr.wikipedia.org/wiki/Hackerspace"
+                                hreflang="fr"
+                                target="_blank"
+                                class="underline"
                                 >HACKERSPACE</a
                             >.
                             <br />
@@ -98,7 +115,7 @@ definePageMeta({
                                 </span>
                             </p>
                         </h1>
-                        <p class="text-lg text-left mt-5 text-white/70 w-4/5">
+                        <p class="text-lg mt-5 text-white/70 w-4/5">
                             À Sophia-Antipolis.<br />
                             Géré collaborativement par ses membres.<br />
                             À but non lucratif.

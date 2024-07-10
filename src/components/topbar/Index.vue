@@ -58,13 +58,13 @@ watch(
 <template>
     <nav class="w-full flex items-center justify-center fixed top-0 z-10">
         <div
-            class="w-full lg:h-fit flex flex-col lg:flex-row items-center justify-between lg:bg-black lg:px-[calc(5rem-20px)]"
+            class="w-full lg:h-fit flex flex-col lg:flex-row items-center justify-between lg:justify-center lg:bg-black lg:px-[calc(5rem-20px)]"
             :class="{
                 '!bg-black h-screen': isMenuOpen,
                 'h-fit': !isMenuOpen,
             }"
         >
-            <div class="flex items-center gap-5 w-full justify-between p-5 bg-black">
+            <div class="items-center gap-5 w-full justify-between p-5 bg-black flex lg:hidden">
                 <NuxtLink
                     to="/"
                     class="text-white font-normal text-2xl text-shadow shadow-white w-fit"
@@ -89,22 +89,58 @@ watch(
                 </button>
             </div>
             <div
-                class="flex flex-col lg:flex-row items-center gap-8 lg:gap-5 whitespace-nowrap p-5"
+                class="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 whitespace-nowrap p-5"
                 :class="{
                     'hidden lg:flex': !isMenuOpen,
                 }"
             >
-                <NuxtLink v-for="item in menu" :to="item.link" class="flex items-center gap-2"
-                    >{{ item.name }}
-                    <span
-                        v-if="item.badge"
-                        class="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5"
-                    >
-                        {{ item.badge }}
-                    </span>
+                <TopbarItem
+                    :item="{
+                        name: 'A propos',
+                        link: '/#about',
+                    }"
+                />
+                <!--  <TopbarItem
+                    :item="{
+                        name: 'Coworking',
+                        link: '/coworking',
+                    }"
+                /> -->
+                <TopbarItem
+                    :item="{
+                        name: 'Agenda',
+                        link: '/agenda',
+                        badge: newEventCounts,
+                    }"
+                />
+                <NuxtLink
+                    to="/"
+                    class="text-white font-normal text-2xl text-shadow shadow-white w-fit"
+                >
+                    <NuxtImg
+                        src="/logo_rounded.png"
+                        width="50"
+                        height="50"
+                        alt="Logo rounded shl sophia hack lab"
+                        class="w-full h-full"
+                        preload
+                    />
                 </NuxtLink>
+
+                <TopbarItem
+                    :item="{
+                        name: 'Projets',
+                        link: '/projects',
+                    }"
+                />
+                <TopbarItem
+                    :item="{
+                        name: 'Contact',
+                        link: '/contact',
+                    }"
+                />
             </div>
-            <div
+            <!--  <div
                 class="flex items-center gap-5 w-full justify-end p-5"
                 :class="{
                     'hidden lg:flex': !isMenuOpen,
@@ -112,7 +148,7 @@ watch(
             >
                 <NuxtLink v-if="!user" to="/login">Se connecter</NuxtLink>
                 <Button theme="ghost" v-else title="Se déconnecter" @click="logout" />
-            </div>
+            </div> -->
         </div>
     </nav>
 </template>
