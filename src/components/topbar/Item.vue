@@ -9,7 +9,7 @@ const props = defineProps<{
 </script>
 
 <template>
-    <NuxtLink :to="item.link" class="flex items-center gap-2">
+    <NuxtLink :to="item.link" class="flex items-center gap-2 font-medium">
         {{ item.name }}
         <span v-if="item.badge" class="bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
             {{ item.badge }}

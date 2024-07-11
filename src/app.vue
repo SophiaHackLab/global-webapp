@@ -13,9 +13,8 @@ const head = {
         },
         {
             rel: "stylesheet",
-            href: "https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;700&display=swap",
+            href: "https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;700&display=swap",
         },
-
     ],
     meta: [
         {
@@ -44,7 +43,6 @@ const head = {
             name: "apple-touch-icon",
             content: "/logo.png",
         },
-       
     ],
 };
 

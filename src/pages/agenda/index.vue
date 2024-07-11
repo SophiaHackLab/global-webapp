@@ -74,13 +74,6 @@ useHead({
             class="self-center"
             @click="handleNewsletter"
         />
-        <Button
-            v-if="newsCookie && !user?.roles.includes('ADMIN')"
-            title="Vous êtes inscrit à la newsletter"
-            theme="primary"
-            disabled
-            class="self-center"
-        />
 
         <div class="w-full md:w-fit self-center">
             <Prompt
