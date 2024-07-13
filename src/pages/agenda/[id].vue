@@ -85,6 +85,13 @@ useHead({
                     >
                 </div>
             </div>
+            <Button
+                v-if="agendaEvent?.externalLink"
+                theme="primary"
+                title="Participer"
+                :link="agendaEvent?.externalLink"
+                expand
+            />
             <div
                 class="w-full h-80"
                 v-if="agendaEvent?.bannerUrl && isImgUrl(agendaEvent?.bannerUrl)"

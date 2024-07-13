@@ -25,7 +25,7 @@ const button_type = () => {
         class="font-medium py-4 px-6 w-full md:w-fit text-center hover:no-underline relative leading-none uppercase group h-fit"
         :class="{
             '!w-full': props.expand,
-            'bg-white text-black whitespace-nowrap triangle_border !pb-0 pr-8 hover:bg-white/10 hover:text-white transition-colors hover:after:!border-white/10 after:transition-colors before:transition-colors':
+            'bg-white text-black whitespace-nowrap triangle_border !pb-0 pr-8 hover:bg-white/10 hover:text-white transition-colors hover:after:!border-white/10 after:transition-colors before:transition-colors mb-4':
                 props.theme == 'primary',
             'bg-white/10 text-white pointer-events-none': props.disabled,
             'split_border hover:text-white/50 transition-colors': props.theme == 'secondary',
