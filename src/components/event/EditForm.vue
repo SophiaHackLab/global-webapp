@@ -17,6 +17,7 @@ const newEventDescription = ref(
         "## Super description de l'évènement à venir!\n\n### Sous-titre\n\n- Point 1\n- Point 2\n- Point 3",
 );
 const newEventBannerUrl = ref(event.value?.bannerUrl || "");
+const newEventExternalLink = ref(event.value?.externalLink || "");
 const newEventLocation = ref(
     event.value?.location ||
         "SHL // Sophia Hack Lab - 2323 Chemin de Saint Bernard Space Antipolis Bat 9 06220 Vallauris, FR",
@@ -33,6 +34,7 @@ defineExpose({
         subtitle: newEventSubtitle,
         description: newEventDescription,
         bannerUrl: newEventBannerUrl,
+        externalLink: newEventExternalLink,
         location: newEventLocation,
         public: newEventPublic,
         date: newEventDate,
@@ -69,6 +71,15 @@ defineExpose({
                 type="text"
                 class="text-white bg-white/10 w-full px-2"
                 v-model="newEventBannerUrl"
+            />
+        </div>
+        <div class="flex flex-col gap-1">
+            <label for="neweventexternalurl" class="text-white/70">Lien d'inscription (opt)</label>
+            <input
+                id="neweventexternalurl"
+                type="text"
+                class="text-white bg-white/10 w-full px-2"
+                v-model="newEventExternalLink"
             />
         </div>
 

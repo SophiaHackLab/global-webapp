@@ -33,6 +33,7 @@ const handleCreateEvent = async (event?: AgendaEvent) => {
         location: form.location?.value,
         public: form.public?.value,
         bannerUrl: form.bannerUrl?.value,
+        externalLink: form.externalLink?.value,
         date: form.date?.value,
     });
     if (result) handleGetEvents();
@@ -61,25 +62,18 @@ useHead({
 </script>
 
 <template>
-    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5">
+    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5 pb-20">
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10 mb-5"
         >
             Nos évènements
         </h1>
         <Button
-            v-if="!user && !newsCookie"
+            v-if="!newsCookie"
             title="S'inscrire à la newsletter"
             theme="primary"
             class="self-center"
             @click="handleNewsletter"
-        />
-        <Button
-            v-if="newsCookie && !user?.roles.includes('ADMIN')"
-            title="Vous êtes inscrit à la newsletter"
-            theme="primary"
-            disabled
-            class="self-center"
         />
 
         <div class="w-full md:w-fit self-center">
@@ -99,6 +93,14 @@ useHead({
             </Prompt>
         </div>
 
+        <!-- <div class="h-[45rem] w-full bg-[#171717] rounded-none overflow-hidden">
+            <iframe
+                width="100%"
+                height="100%"
+                class=""
+                src="https://cloud.shl.contact/apps/calendar/embed/E6iFBddSPJ6m34EY"
+            ></iframe>
+        </div> -->
         <div class="w-full flex flex-col items-center gap-5 h-full">
             <EventCard
                 v-for="agendaEvent in events.filter((a) => !isEventPassed(a.date))"

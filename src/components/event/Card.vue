@@ -166,7 +166,7 @@ watch(
                 </div>
                 <Button
                     theme="primary"
-                    title="Voir la fiche >"
+                    title="Voir la fiche"
                     :link="generateEventUrl(agendaEvent)"
                     :class="{
                         'opacity-50': isEventPassed(agendaEvent.date),

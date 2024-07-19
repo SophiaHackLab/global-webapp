@@ -3,3 +3,4 @@ Disallow: /api/
 Disallow: /broadcasting/
 Disallow: /rest/
 Disallow: /blogcms/
+Disallow: /tv
