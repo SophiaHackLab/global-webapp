@@ -98,7 +98,7 @@ definePageMeta({
                                 alt="Logo rounded shl sophia hack lab"
                             />
                         </div>
-                        <h1 class="text-3xl md:text-4xl font-medium">
+                        <h1 class="text-2xl md:text-4xl font-medium">
                             Le SHL est un
                             <a
                                 href="https://fr.wikipedia.org/wiki/Hackerspace"
@@ -112,17 +112,18 @@ definePageMeta({
                                 créatifs.
                             </span>
                         </h1>
-                        <p class="text-lg mt-5 text-white/70 w-4/5">
-                            Association à but non lucratif située à Sophia-Antipolis.<br />
+                        <p class="text-base mt-5 text-white/70 w-4/5">
+                            Association à but non lucratif.<br />
+                            Situé à Sophia-Antipolis.<br />
                             Géré collaborativement par ses membres.
                         </p>
                     </div>
-                    <div class="flex flex-col md:flex-row gap-8 md:gap-5 pt-3 w-full">
-                        <Button title="Découvrir le lieu" link="/#about" theme="primary" />
-                        <Button title="Voir les évènements" link="/agenda" theme="secondary" />
+                    <div class="flex flex-col md:flex-row gap-2 md:gap-5 pt-3 w-full">
+                        <Button title="A propos" link="/#about" theme="primary" />
+                        <Button title="Nos prochains évènements" link="/agenda" theme="secondary" />
                     </div>
                 </div>
-                <div class="w-full flex items-center gap-5 pt-10 hidden">
+                <div class="w-full items-center gap-5 pt-10 hidden">
                     <a
                         href="https://www.linkedin.com/company/sophia-hack-lab/"
                         target="_blank"
@@ -195,70 +196,166 @@ definePageMeta({
             </div>
         </header>
         <div class="w-full flex flex-col items-center justify-center">
-            <section
-                id="about"
-                class="px-5 md:px-20 flex flex-col w-full pt-24 h-full min-h-screen max-w-7xl mt-10"
-            >
+            <div class="px-5 flex flex-col w-full pt-24 h-full min-h-screen max-w-[56rem] mt-10">
                 <div class="w-full flex items-center flex-col gap-12">
-                    <div class="flex flex-col gap-10 max-w-xl">
-                        <h2
-                            class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white"
-                        >
-                            A propos du SHL
-                        </h2>
-                        <p class="text-white/70 text-left">
-                            Le SHL est un
+                    <section id="about" class="flex flex-col gap-5">
+                        <div class="flex items-center w-fit gap-3">
+                            <IconsInfos class="w-8 h-8 text-green" />
+                            <h2
+                                class="text-2xl text-left font-medium text-white whitespace-nowrap text-shadow shadow-white"
+                            >
+                                A propos du SHL
+                            </h2>
+                        </div>
+                        <div class="pl-[44px] flex flex-col gap-8">
+                            <p class="text-white/70 text-left">
+                                Le SHL est un
+                                <a
+                                    href="https://fr.wikipedia.org/wiki/Hackerspace"
+                                    hreflang="fr"
+                                    target="_blank"
+                                    >hackerspace</a
+                                >, une communauté d'ingénieurs, d'artistes, de scientifiques,
+                                d'entrepreneurs et d'autres personnes créatives qui partagent un
+                                espace de travail et de socialisation. N'hésitez pas à venir voir
+                                par vous-même ce qu'est le SHL.
+                            </p>
+                            <!-- 
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-lg font-medium text-left">
+                                    Adhésion au Sophia Hack Lab
+                                </h3>
+                                <p class="text-white/70 text-left">
+                                    Nous sommes une association à but non lucratif et sans le
+                                    soutien de nos membres, nous cesserions d'exister ! L'adhésion
+                                    normale est de 180 euros par an pour un accès illimité à
+                                    l'espace.
+                                </p>
+                            </div>
+
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-lg font-medium text-left">
+                                    Pour devenir membre
+                                </h3>
+                                <p class="text-white/70 text-left">
+                                    Venez plusieurs fois aux soirées Open Tuesday ou à nos
+                                    événements Open Lab. Faites connaissance avec quelques membres,
+                                    parlez de vos centres d'intérêt. Remplissez le formulaire
+                                    d'adhésion. Trouvez deux parrains pour signer votre formulaire
+                                    d'adhésion. Une fois votre demande traitée, vous recevrez un
+                                    courrier de bienvenue avec les instructions de paiement. Une
+                                    fois que nous aurons reçu votre paiement, vous aurez accès au
+                                    hackerspace. L’accès est individuel et ne peut être partagé. Il
+                                    nécessite que vous possédiez un smartphone (consultez nous si ce
+                                    n’est pas le cas)
+                                </p>
+                            </div> -->
+
+                            <!--  <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-lg font-medium text-left">
+                                    Politique du SHL
+                                </h3>
+                                <p class="text-white/70 text-left">
+                                    Lorsque vous devenez membre du SHL, vous acceptez de suivre
+                                    quelques règles simples.
+                                </p>
+                            </div> -->
+                        </div>
+                    </section>
+                    <section id="find-us" class="flex flex-col gap-5 w-full">
+                        <div class="flex items-center w-fit gap-3">
+                            <IconsPin class="w-8 h-8 text-green" />
+                            <h2
+                                class="text-2xl text-left font-medium text-white whitespace-nowrap text-shadow shadow-white"
+                            >
+                                Nous trouver
+                            </h2>
+                        </div>
+                        <div class="pl-[44px] flex flex-col gap-8">
+                            <div class="flex flex-col">
+                                <p class="text-white/70">2323 Chem. de Saint-Bernard</p>
+                                <p class="text-white/70">Space Antipolis Batiment 9</p>
+                                <p class="text-white/70">
+                                    06220 Vallauris - Sophia Antipolis, France
+                                </p>
+                            </div>
+                            <div class="flex flex-col gap-2">
+                                <a
+                                    href="https://www.openstreetmap.org/node/12045964453"
+                                    target="_blank"
+                                    class="text-sky-500 text-lg font-medium"
+                                >
+                                    Ouvrir dans OpenStreetMap
+                                </a>
+                                <a
+                                    href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x12cc2bdc665f9519:0xbec2c67e303a5bbb?sa=X&ved=1t:8290&ictx=111"
+                                    target="_blank"
+                                    class="text-sky-500 text-lg font-medium"
+                                >
+                                    Ouvrir dans Google Maps
+                                </a>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="contact" class="flex flex-col gap-5 w-full">
+                        <div class="flex items-center w-fit gap-3">
+                            <IconsMail class="w-8 h-8 text-green" />
+                            <h2
+                                class="text-2xl text-left font-medium text-white whitespace-nowrap text-shadow shadow-white"
+                            >
+                                Contact
+                            </h2>
+                        </div>
+                        <div class="pl-[44px] flex flex-col gap-8">
+                            <p class="text-white/70">
+                                Pour nous contacter, vous pouvez nous retrouver sur les réseaux
+                                sociaux ou nous envoyer un mail à l'adresse suivante :
+                            </p>
+
                             <a
-                                href="https://fr.wikipedia.org/wiki/Hackerspace"
-                                hreflang="fr"
-                                target="_blank"
-                                >hackerspace</a
-                            >, une communauté d'ingénieurs, d'artistes, de scientifiques,
-                            d'entrepreneurs et d'autres personnes créatives qui partagent un espace
-                            de travail et de socialisation. N'hésitez pas à venir voir par vous-même
-                            ce qu'est le SHL.
-                        </p>
+                                href="mailto:crew@shl.contact"
+                                class="text-sky-500 font-medium underline"
+                            >
+                                crew@shl.contact
+                            </a>
+                            <div class="flex flex-col gap-2">
+                                <h3 class="text-white text-lg font-normal text-left pb-2">
+                                    Réseaux sociaux
+                                </h3>
 
-                        <div class="flex flex-col gap-2">
-                            <h3 class="text-white text-lg font-medium text-left">
-                                Adhésion au Sophia Hack Lab
-                            </h3>
-                            <p class="text-white/70 text-left">
-                                Nous sommes une association à but non lucratif et sans le soutien de
-                                nos membres, nous cesserions d'exister ! L'adhésion normale est de
-                                180 euros par an pour un accès illimité à l'espace.
-                            </p>
-                        </div>
+                                <div class="flex flex-col gap-1.5">
+                                    <p class="text-white/70 text-left">Pour discuter avec nous :</p>
 
-                        <div class="flex flex-col gap-2">
-                            <h3 class="text-white text-lg font-medium text-left">
-                                Pour devenir membre
-                            </h3>
-                            <p class="text-white/70 text-left">
-                                Venez plusieurs fois aux soirées Open Tuesday ou à nos événements
-                                Open Lab. Faites connaissance avec quelques membres, parlez de vos
-                                centres d'intérêt. Remplissez le formulaire d'adhésion. Trouvez deux
-                                parrains pour signer votre formulaire d'adhésion. Une fois votre
-                                demande traitée, vous recevrez un courrier de bienvenue avec les
-                                instructions de paiement. Une fois que nous aurons reçu votre
-                                paiement, vous aurez accès au hackerspace. L’accès est individuel et
-                                ne peut être partagé. Il nécessite que vous possédiez un smartphone
-                                (consultez nous si ce n’est pas le cas)
-                            </p>
-                        </div>
+                                    <div class="text-left">
+                                        <a
+                                            href="https://discord.gg/27GfdV4Jd9"
+                                            target="_blank"
+                                            class="flex items-center gap-3 text-sky-500 font-medium"
+                                        >
+                                            Rejoignez notre serveur Discord
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1.5 pt-3">
+                                    <p class="text-white/70 text-left">
+                                        Pour suivre notre actualité :
+                                    </p>
 
-                        <div class="flex flex-col gap-2">
-                            <h3 class="text-white text-lg font-medium text-left">
-                                Politique du SHL
-                            </h3>
-                            <p class="text-white/70 text-left">
-                                Lorsque vous devenez membre du SHL, vous acceptez de suivre
-                                quelques règles simples.
-                            </p>
+                                    <div class="flex items-center gap-3">
+                                        <a
+                                            href="https://www.linkedin.com/company/sophia-hack-lab/"
+                                            target="_blank"
+                                            class="flex items-center gap-3 text-sky-500 font-medium"
+                                        >
+                                            Inscrivez-vous à notre page LinkedIn
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </div>
     </div>
 </template>

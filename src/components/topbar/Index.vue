@@ -6,6 +6,8 @@ const route = useRoute();
 const isMenuOpen = ref(false);
 const newEventCounts = ref(0);
 
+const isScrolling = ref(false);
+
 const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
 };
@@ -17,6 +19,10 @@ const closeMenu = () => {
 const logout = () => {
     localStorage.removeItem("session");
     window.location.href = "/";
+};
+
+const handleScroll = () => {
+    isScrolling.value = window.scrollY > window.innerHeight / 2;
 };
 
 const menu = ref([
@@ -45,6 +51,12 @@ onMounted(() => {
             });
         }
     });
+
+    window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll);
 });
 
 watch(
@@ -58,7 +70,7 @@ watch(
 <template>
     <nav class="w-full flex items-center justify-center fixed top-0 z-10">
         <div
-            class="w-full lg:h-fit flex flex-col lg:flex-row items-center justify-between lg:justify-center lg:bg-black lg:px-[calc(5rem-20px)]"
+            class="w-full h-full lg:h-fit flex flex-col lg:flex-row items-center justify-between lg:justify-center lg:bg-black lg:px-[calc(5rem-20px)]"
             :class="{
                 '!bg-black h-screen': isMenuOpen,
                 'h-fit': !isMenuOpen,
@@ -68,6 +80,9 @@ watch(
                 <NuxtLink
                     to="/"
                     class="text-white font-normal text-2xl text-shadow shadow-white w-fit"
+                    :class="{
+                        'opacity-0': !isScrolling,
+                    }"
                 >
                     <NuxtImg
                         src="/logo_rounded.png"
@@ -89,56 +104,67 @@ watch(
                 </button>
             </div>
             <div
-                class="flex flex-col lg:flex-row items-center gap-8 lg:gap-8 whitespace-nowrap p-5"
+                class="h-full lg:h-fit whitespace-nowrap p-5 w-full"
                 :class="{
                     'hidden lg:flex': !isMenuOpen,
                 }"
             >
-                <TopbarItem
-                    :item="{
-                        name: 'A propos',
-                        link: '/#about',
-                    }"
-                />
-                <!--  <TopbarItem
-                    :item="{
-                        name: 'Coworking',
-                        link: '/coworking',
-                    }"
-                /> -->
-                <TopbarItem
-                    :item="{
-                        name: 'Agenda',
-                        link: '/agenda',
-                        badge: newEventCounts,
-                    }"
-                />
-                <NuxtLink
-                    to="/"
-                    class="text-white font-normal text-2xl text-shadow shadow-white w-fit"
+                <div
+                    class="flex flex-col lg:flex-row items-center w-full justify-between gap-8 lg:gap-8"
                 >
-                    <NuxtImg
-                        src="/logo_rounded.png"
-                        width="50"
-                        height="50"
-                        alt="Logo rounded shl sophia hack lab"
-                        class="w-full h-full"
-                        preload
-                    />
-                </NuxtLink>
-
-                <TopbarItem
-                    :item="{
-                        name: 'Projets',
-                        link: '/projects',
-                    }"
-                />
-                <TopbarItem
-                    :item="{
-                        name: 'Contact',
-                        link: '/contact',
-                    }"
-                />
+                    <NuxtLink
+                        to="/"
+                        class="text-white font-normal text-2xl text-shadow shadow-white w-fit hidden lg:flex transition-all"
+                        :class="{
+                            'opacity-0': !isScrolling,
+                        }"
+                    >
+                        <NuxtImg
+                            src="/logo_rounded.png"
+                            width="50"
+                            height="50"
+                            alt="Logo rounded shl sophia hack lab"
+                            class="w-full h-full"
+                            preload
+                        />
+                    </NuxtLink>
+                    <div class="flex items-center flex-col lg:flex-row gap-8">
+                        <TopbarItem
+                            :item="{
+                                name: 'Nous rejoindre',
+                                link: '/join-us',
+                            }"
+                        />
+                        <TopbarItem
+                            :item="{
+                                name: 'Coworking',
+                                link: '/coworking',
+                            }"
+                        />
+                        <TopbarItem
+                            :item="{
+                                name: 'Agenda',
+                                link: '/agenda',
+                                badge: newEventCounts,
+                            }"
+                        />
+                    </div>
+                    <span class="lg:hidden"> -</span>
+                    <div class="flex items-center flex-col lg:flex-row gap-8">
+                        <!-- <TopbarItem
+                            :item="{
+                                name: 'Nous trouver',
+                                link: '/#find-us',
+                            }"
+                        /> -->
+                        <TopbarItem
+                            :item="{
+                                name: 'Contact',
+                                link: '/#contact',
+                            }"
+                        />
+                    </div>
+                </div>
             </div>
             <!--  <div
                 class="flex items-center gap-5 w-full justify-end p-5"

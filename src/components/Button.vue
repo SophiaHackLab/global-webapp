@@ -22,13 +22,13 @@ const button_type = () => {
     <component
         :is="button_type()"
         v-bind="button_type() == 'a' ? { href: props.link, target: '_blank' } : { to: props.link }"
-        class="font-medium py-4 px-6 w-full md:w-fit text-center hover:no-underline relative leading-none uppercase group h-fit"
+        class="font-medium py-4 px-6 w-full md:w-fit text-center hover:no-underline relative leading-none group h-fit"
         :class="{
             '!w-full': props.expand,
-            'bg-white text-black whitespace-nowrap triangle_border !pb-0 pr-8 hover:bg-white/10 hover:text-white transition-colors hover:after:!border-white/10 after:transition-colors before:transition-colors mb-4':
+            'bg-green uppercase rounded-lg text-black whitespace-nowrap  pr-8 hover:bg-white/10 hover:text-white transition-colors hover:after:!border-white/10 after:transition-colors before:transition-colors mb-4':
                 props.theme == 'primary',
             'bg-white/10 text-white pointer-events-none': props.disabled,
-            'split_border hover:text-white/50 transition-colors': props.theme == 'secondary',
+            ' hover:text-white/50 transition-colors !px-2 text-lg': props.theme == 'secondary',
         }"
         :title="props.title"
         :aria-label="props.title"

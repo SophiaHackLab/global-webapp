@@ -1,5 +1,5 @@
 body {
-    font-family: "Chakra Petch", monospace;
+    font-family: "IBM Plex Mono", monospace;
     font-display: swap;
     font-style: normal;
     font-weight: 400;
@@ -24,4 +24,8 @@ a:hover {
 .hidden-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+p {
+    font-family: "IBM Plex Mono", monospace;
 }

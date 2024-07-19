@@ -10,6 +10,9 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                green: "#6CD245",
+            },
             textShadow: {
                 sm: "0 1px 2px var(--tw-shadow-color)",
                 DEFAULT: "0 0px 3px var(--tw-shadow-color)",
