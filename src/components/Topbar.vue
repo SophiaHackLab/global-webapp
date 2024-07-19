@@ -20,7 +20,7 @@ const logout = () => {
 };
 
 const menu = ref([
-    { name: "A propos", link: "/about" },
+    { name: "A propos", link: "/#about" },
     {
         name: "Coworking",
         link: "/coworking",
