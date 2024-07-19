@@ -220,6 +220,11 @@ definePageMeta({
                                 espace de travail et de socialisation. N'hésitez pas à venir voir
                                 par vous-même ce qu'est le SHL.
                             </p>
+                            <p class="text-white/70 text-left">
+                                Le SHL dispose de plusieurs espaces sur une surface totale de 300m² : un lab équipé pour le
+                                prototypage et la réalisation de tout type de projet, un espace de
+                                coworking et une salle de réunion.
+                            </p>
                             <!-- 
                             <div class="flex flex-col gap-2">
                                 <h3 class="text-white text-lg font-medium text-left">

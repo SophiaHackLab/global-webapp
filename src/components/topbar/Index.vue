@@ -137,13 +137,21 @@ watch(
                         />
                         <TopbarItem
                             :item="{
-                                name: 'Coworking',
-                                link: '/coworking',
+                                name: 'Nos services',
+                                link: '/services',
+                            }"
+                        />
+
+                        <TopbarItem
+                            :item="{
+                                name: 'Nos évènements',
+                                link: '/agenda',
+                                badge: newEventCounts,
                             }"
                         />
                         <TopbarItem
                             :item="{
-                                name: 'Agenda',
+                                name: 'Nous soutenir',
                                 link: '/agenda',
                                 badge: newEventCounts,
                             }"
