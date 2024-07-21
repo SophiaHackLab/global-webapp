@@ -5,7 +5,13 @@ import "md-editor-v3/lib/style.css";
 import createAgendaEvent from "~/composables/event/createEvent";
 import deleteAgendaEvent from "~/composables/event/deleteEvent";
 import getEvents from "~/composables/event/getEvents";
-import { addZero, monthNames, truncate, weekDays, isEventPassed } from "~/composables/utils/format";
+import {
+    addZero,
+    monthNames,
+    truncate,
+    weekDays,
+    isEventPassed,
+} from "~/composables/utils/format";
 
 const { user } = useUserStore();
 const router = useRouter();
@@ -62,7 +68,9 @@ useHead({
 </script>
 
 <template>
-    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5 pb-20">
+    <div
+        class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5 pb-20"
+    >
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10 mb-5"
         >
@@ -82,7 +90,13 @@ useHead({
                 title="Créer un évènement"
                 custom
                 actionTitle="Créer l'évènement"
-                :action="() => handleCreateEvent()"
+                :action="
+                    () =>
+                        handleCreateEvent({
+                            ...formContent.eventForm,
+                            id: null,
+                        })
+                "
             >
                 <template #trigger>
                     <Button title="Créer un évènement +" theme="primary" />
@@ -103,7 +117,9 @@ useHead({
         </div> -->
         <div class="w-full flex flex-col items-center gap-5 h-full">
             <EventCard
-                v-for="agendaEvent in events.filter((a) => !isEventPassed(a.date))"
+                v-for="agendaEvent in events.filter(
+                    (a) => !isEventPassed(a.date),
+                )"
                 :key="agendaEvent.id"
                 :agendaEvent="agendaEvent"
                 :events="events"
@@ -112,12 +128,16 @@ useHead({
             />
             <div class="w-full flex items-center gap-5 my-2">
                 <div class="w-full h-[2px] bg-white/10" />
-                <p class="text-white text-center whitespace-nowrap">Évènements passés</p>
+                <p class="text-white text-center whitespace-nowrap">
+                    Évènements passés
+                </p>
                 <div class="w-full h-[2px] bg-white/10" />
             </div>
             <div class="w-full flex flex-col items-center gap-5 h-full">
                 <EventCard
-                    v-for="agendaEvent in events.filter((a) => isEventPassed(a.date))"
+                    v-for="agendaEvent in events.filter((a) =>
+                        isEventPassed(a.date),
+                    )"
                     :key="agendaEvent.id"
                     :agendaEvent="agendaEvent"
                     :events="events"

@@ -2,7 +2,8 @@
 const router = useRouter();
 onMounted(() => {
     localStorage.removeItem("token");
+    localStorage.removeItem("session");
     localStorage.removeItem("user");
-    router.push({ name: "auth-login" });
+    window.location.href = "/";
 });
 </script>
