@@ -22,6 +22,8 @@ const logout = () => {
 };
 
 const handleScroll = () => {
+    console.log(route.name);
+    if (route.name !== "index") return;
     isScrolling.value = window.scrollY > window.innerHeight / 2;
 };
 
@@ -40,7 +42,8 @@ onMounted(() => {
     getEvents().then((events) => {
         if (events) {
             newEventCounts.value = events?.filter(
-                (event: AgendaEvent) => new Date(event.date).getTime() > new Date().getTime(),
+                (event: AgendaEvent) =>
+                    new Date(event.date).getTime() > new Date().getTime(),
             )?.length;
 
             menu.value = menu.value.map((item) => {
@@ -76,12 +79,14 @@ watch(
                 'h-fit': !isMenuOpen,
             }"
         >
-            <div class="items-center gap-5 w-full justify-between p-5 bg-black flex lg:hidden">
+            <div
+                class="items-center gap-5 w-full justify-between p-5 bg-black flex lg:hidden"
+            >
                 <NuxtLink
                     to="/"
                     class="text-white font-normal text-2xl text-shadow shadow-white w-fit"
                     :class="{
-                        'opacity-0': !isScrolling,
+                        'opacity-0': !isScrolling && route.name === 'index',
                     }"
                 >
                     <NuxtImg
@@ -116,7 +121,7 @@ watch(
                         to="/"
                         class="text-white font-normal text-2xl text-shadow shadow-white w-fit hidden lg:flex transition-all"
                         :class="{
-                            'opacity-0': !isScrolling,
+                            'opacity-0': !isScrolling && route.name === 'index',
                         }"
                     >
                         <NuxtImg
