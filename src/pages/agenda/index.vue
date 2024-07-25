@@ -4,6 +4,8 @@ import "md-editor-v3/lib/style.css";
 
 import createAgendaEvent from "~/composables/event/createEvent";
 import deleteAgendaEvent from "~/composables/event/deleteEvent";
+import subscribe from "~/composables/mail/subscribe";
+
 import getEvents from "~/composables/event/getEvents";
 import {
     addZero,
@@ -24,11 +26,32 @@ const isGlobalLoading = ref(true);
 const formContent = ref();
 const events: Ref<AgendaEvent[]> = ref([]);
 
-const handleNewsletter = () => {
-    router.push("/auth/login?redirect=/agenda");
+const email = ref("");
+const isSubscribing = ref(false);
+const globalError = ref("");
+const isSubscribed = ref(false);
+
+// Watch for newCookie change to update isSubscribed
+watchEffect(() => {
+    if (newsCookie.value) isSubscribed.value = true;
+});
+
+const handleNewsletter = async () => {
+    if (!email.value) {
+        globalError.value = "Veuillez renseigner votre email";
+        return;
+    }
+    isSubscribing.value = true;
+    const response = await subscribe(email.value);
+    isSubscribing.value = false;
+    if (!response || response?.error) {
+        globalError.value = "Vous êtes déjà inscrit ou une erreur est survenue";
+        return;
+    }
+    isSubscribed.value = true;
+    newsCookie.value = "true";
 };
 const handleCreateEvent = async (event?: AgendaEvent) => {
-    console.log(event);
     if (!event) return;
     const form = event as any;
     const result = await createAgendaEvent({
@@ -55,9 +78,6 @@ const handleGetEvents = async (): Promise<AgendaEvent[]> => {
     return result as AgendaEvent[];
 };
 
-await handleGetEvents();
-if (user?.id) if (!newsCookie.value) newsCookie.value = "true";
-
 definePageMeta({
     middleware: "auth",
 });
@@ -65,6 +85,9 @@ definePageMeta({
 useHead({
     title: "Nos évènements - Sophia Hack Lab",
 });
+
+await handleGetEvents();
+if (user?.id) if (!newsCookie.value) newsCookie.value = "true";
 </script>
 
 <template>
@@ -76,13 +99,39 @@ useHead({
         >
             Nos évènements
         </h1>
-        <Button
-            v-if="!newsCookie"
-            title="S'inscrire à la newsletter"
-            theme="primary"
-            class="self-center"
-            @click="handleNewsletter"
-        />
+        <div class="flex flex-col">
+            <div
+                class="flex flex-col md:flex-row items-center justify-center gap-2"
+            >
+                <input
+                    v-if="!isSubscribed && !!!newsCookie"
+                    v-model="email"
+                    @focus="globalError = ''"
+                    type="text"
+                    placeholder="Votre email"
+                    class="p-3 px-4 bg-white w-full md:w-72 text-black rounded-lg decoration-none outline-none"
+                />
+                <Button
+                    v-if="isSubscribed"
+                    :title="'Vous êtes inscrit ✅'"
+                    :theme="'primary'"
+                    disabled
+                    class="self-center"
+                    :loading="isSubscribing"
+                />
+                <Button
+                    v-if="!isSubscribed && !!!newsCookie"
+                    :title="'S\'inscrire'"
+                    :theme="'primary'"
+                    class="self-center"
+                    :loading="isSubscribing"
+                    @click="handleNewsletter"
+                />
+            </div>
+            <p v-if="globalError" class="text-red-500 text-center mt-2">
+                {{ globalError }}
+            </p>
+        </div>
 
         <div class="w-full md:w-fit self-center">
             <Prompt
@@ -126,7 +175,7 @@ useHead({
                 :handleCreateEvent="handleCreateEvent"
                 :handleGetEvents="handleGetEvents"
             />
-            <div class="w-full flex items-center gap-5 my-2">
+            <div class="w-full flex items-center gap-5 my-2 mt-5">
                 <div class="w-full h-[2px] bg-white/10" />
                 <p class="text-white text-center whitespace-nowrap">
                     Évènements passés
@@ -135,9 +184,9 @@ useHead({
             </div>
             <div class="w-full flex flex-col items-center gap-5 h-full">
                 <EventCard
-                    v-for="agendaEvent in events.filter((a) =>
-                        isEventPassed(a.date),
-                    )"
+                    v-for="agendaEvent in events
+                        .filter((a) => isEventPassed(a.date))
+                        .sort((a, b) => (a.date > b.date ? -1 : 1))"
                     :key="agendaEvent.id"
                     :agendaEvent="agendaEvent"
                     :events="events"

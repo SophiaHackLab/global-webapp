@@ -108,7 +108,9 @@ definePageMeta({
                             >.
                             <br />
                             Un environnement pour des projets techniques et
-                            <span class="relative border-r-8 border-white animate-typingpulse">
+                            <span
+                                class="relative border-r-8 border-white animate-typingpulse"
+                            >
                                 créatifs.
                             </span>
                         </h1>
@@ -118,9 +120,19 @@ definePageMeta({
                             Géré collaborativement par ses membres.
                         </p>
                     </div>
-                    <div class="flex flex-col md:flex-row gap-2 md:gap-5 pt-3 w-full">
-                        <Button title="A propos" link="/#about" theme="primary" />
-                        <Button title="Nos prochains évènements" link="/agenda" theme="secondary" />
+                    <div
+                        class="flex flex-col md:flex-row gap-2 md:gap-5 pt-3 w-full"
+                    >
+                        <Button
+                            title="Découvrir"
+                            link="/#discover"
+                            theme="primary"
+                        />
+                        <Button
+                            title="Nos prochains évènements >"
+                            link="/agenda"
+                            theme="secondary"
+                        />
                     </div>
                 </div>
                 <div class="w-full items-center gap-5 pt-10 hidden">
@@ -172,8 +184,10 @@ definePageMeta({
                         :id="index.toString()"
                         class="bg-white/10 h-80 md:h-full overflow-hidden"
                         :class="{
-                            'md:col-span-2 md:!h-56 3xl:!h-72': image.span_x && !image.span_y,
-                            'md:row-span-2 md:!w-56 3xl:!w-72': image.span_y && !image.span_x,
+                            'md:col-span-2 md:!h-56 3xl:!h-72':
+                                image.span_x && !image.span_y,
+                            'md:row-span-2 md:!w-56 3xl:!w-72':
+                                image.span_y && !image.span_x,
                             'md:!w-56 3xl:!h-72 md:!h-56 3xl:!w-72 md:aspect-square':
                                 !image.span_x && !image.span_y,
                             'md:col-span-2 md:row-span-2 md:!w-[28.75rem] 3xl:!w-[36.75rem] md:!h-[28.75rem] 3xl:!h-[36.75rem]':
@@ -195,8 +209,13 @@ definePageMeta({
                 </div>
             </div>
         </header>
-        <div class="w-full flex flex-col items-center justify-center">
-            <div class="px-5 flex flex-col w-full pt-24 h-full min-h-screen max-w-[56rem] mt-10">
+        <section
+            id="discover"
+            class="w-full flex flex-col items-center justify-center"
+        >
+            <div
+                class="px-5 flex flex-col w-full pt-24 h-full min-h-screen max-w-[56rem] mt-10"
+            >
                 <div class="w-full flex items-center flex-col gap-12">
                     <section id="about" class="flex flex-col gap-5">
                         <div class="flex items-center w-fit gap-3">
@@ -215,17 +234,20 @@ definePageMeta({
                                     hreflang="fr"
                                     target="_blank"
                                     >hackerspace</a
-                                >, une communauté d'ingénieurs, d'artistes, de scientifiques,
-                                d'entrepreneurs et d'autres personnes créatives qui partagent un
-                                espace de travail et de socialisation. N'hésitez pas à venir voir
-                                par vous-même ce qu'est le SHL.
+                                >, une communauté d'ingénieurs, d'artistes, de
+                                scientifiques, d'entrepreneurs et d'autres
+                                personnes créatives qui partagent un espace de
+                                travail et de socialisation. N'hésitez pas à
+                                venir voir par vous-même ce qu'est le SHL.
                             </p>
                             <p class="text-white/70 text-left">
-                                Le SHL dispose de plusieurs espaces sur une surface totale de 300m² : un lab équipé pour le
-                                prototypage et la réalisation de tout type de projet, un espace de
-                                coworking et une salle de réunion.
+                                Le SHL dispose de plusieurs espaces sur une
+                                surface totale de 300m² : un lab équipé pour le
+                                prototypage et la réalisation de tout type de
+                                projet, un espace de coworking et une salle de
+                                réunion.
                             </p>
-                            <!-- 
+                            <!--
                             <div class="flex flex-col gap-2">
                                 <h3 class="text-white text-lg font-medium text-left">
                                     Adhésion au Sophia Hack Lab
@@ -278,8 +300,12 @@ definePageMeta({
                         </div>
                         <div class="pl-[44px] flex flex-col gap-8">
                             <div class="flex flex-col">
-                                <p class="text-white/70">2323 Chem. de Saint-Bernard</p>
-                                <p class="text-white/70">Space Antipolis Batiment 9</p>
+                                <p class="text-white/70">
+                                    2323 Chem. de Saint-Bernard
+                                </p>
+                                <p class="text-white/70">
+                                    Space Antipolis Batiment 9
+                                </p>
                                 <p class="text-white/70">
                                     06220 Vallauris - Sophia Antipolis, France
                                 </p>
@@ -313,8 +339,9 @@ definePageMeta({
                         </div>
                         <div class="pl-[44px] flex flex-col gap-8">
                             <p class="text-white/70">
-                                Pour nous contacter, vous pouvez nous retrouver sur les réseaux
-                                sociaux ou nous envoyer un mail à l'adresse suivante :
+                                Pour nous contacter, vous pouvez nous retrouver
+                                sur les réseaux sociaux ou nous envoyer un mail
+                                à l'adresse suivante :
                             </p>
 
                             <a
@@ -324,12 +351,16 @@ definePageMeta({
                                 crew@shl.contact
                             </a>
                             <div class="flex flex-col gap-2">
-                                <h3 class="text-white text-lg font-normal text-left pb-2">
+                                <h3
+                                    class="text-white text-lg font-normal text-left pb-2"
+                                >
                                     Réseaux sociaux
                                 </h3>
 
                                 <div class="flex flex-col gap-1.5">
-                                    <p class="text-white/70 text-left">Pour discuter avec nous :</p>
+                                    <p class="text-white/70 text-left">
+                                        Pour discuter avec nous :
+                                    </p>
 
                                     <div class="text-left">
                                         <a
@@ -361,6 +392,6 @@ definePageMeta({
                     </section>
                 </div>
             </div>
-        </div>
+        </section>
     </div>
 </template>

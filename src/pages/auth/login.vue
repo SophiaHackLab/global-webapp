@@ -40,7 +40,8 @@ const login = async (e: any) => {
     } else {
         localStorage.setItem("session", result.access_token);
         getUser();
-        if (route.query.redirect) window.location.href = route.query.redirect as string;
+        if (route.query.redirect)
+            window.location.href = route.query.redirect as string;
         else window.location.href = "/";
     }
 };
@@ -54,7 +55,9 @@ useHead({
 });
 </script>
 <template>
-    <div class="h-screen w-full flex items-center justify-center flex-col gap-5">
+    <div
+        class="h-screen w-full flex items-center justify-center flex-col gap-5"
+    >
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white"
         >
@@ -71,7 +74,7 @@ useHead({
                 @focus="globalError = ''"
                 type="text"
                 placeholder="Entrez votre email"
-                class="p-2 bg-white text-black rounded-none decoration-none outline-none"
+                class="py-3 px-4 bg-white text-black rounded-lg decoration-none outline-none"
             />
             <input
                 v-if="emailSent"
@@ -79,7 +82,7 @@ useHead({
                 @focus="globalError = ''"
                 type="text"
                 placeholder="Code magique"
-                class="p-2 bg-white text-black rounded-none decoration-none outline-none"
+                class="py-3 px-4 bg-white text-black rounded-lg decoration-none outline-none"
             />
             <Button
                 v-if="!emailSent"
@@ -96,6 +99,8 @@ useHead({
                 @click="login"
             />
         </form>
-        <p v-if="globalError" class="text-red-500 text-center">{{ globalError }}</p>
+        <p v-if="globalError" class="text-red-500 text-center">
+            {{ globalError }}
+        </p>
     </div>
 </template>

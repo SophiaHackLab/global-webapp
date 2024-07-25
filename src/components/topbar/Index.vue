@@ -137,7 +137,7 @@ watch(
                         <TopbarItem
                             :item="{
                                 name: 'Nous rejoindre',
-                                link: '/join-us',
+                                link: '/#contact',
                             }"
                         />
                         <TopbarItem
@@ -157,8 +157,7 @@ watch(
                         <TopbarItem
                             :item="{
                                 name: 'Nous soutenir',
-                                link: '/agenda',
-                                badge: newEventCounts,
+                                link: 'https://www.helloasso.com/associations/sophi-hack',
                             }"
                         />
                     </div>
