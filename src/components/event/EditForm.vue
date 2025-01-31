@@ -27,6 +27,17 @@ const newEventDate = ref(
     event.value?.date ? new Date(event.value?.date || "") : new Date(new Date().setHours(17)),
 );
 
+const formatDateForInput = (date: Date) => {
+    if (!(date instanceof Date) || isNaN(date.getTime())) {
+        // Return current date if invalid
+        date = new Date();
+    }
+    // Adjust for local timezone
+    const tzOffset = date.getTimezoneOffset() * 60000; // offset in milliseconds
+    const localDate = new Date(date.getTime() - tzOffset);
+    return localDate.toISOString().slice(0, 16);
+};
+
 defineExpose({
     eventForm: {
         id: newEventId,
@@ -91,6 +102,7 @@ defineExpose({
                 class="text-white bg-white/10 px-2"
                 v-model="newEventPublic"
             />
+            {{ newEventPublic }}
         </div>
 
         <div class="flex flex-col gap-2 pt-2 text-white font-medium">
@@ -102,11 +114,7 @@ defineExpose({
                         id="neweventdate"
                         type="datetime-local"
                         class="px-1.5 text-white bg-white/10"
-                        :value="
-                            new Date(new Date(newEventDate).getTime() + 1000 * 60 * 60 * 2)
-                                .toISOString()
-                                .slice(0, 16)
-                        "
+                        :value="formatDateForInput(newEventDate)"
                         @input="(e: any) => (newEventDate = new Date(e?.target?.value))"
                     />
                 </p>

@@ -7,13 +7,7 @@ import deleteAgendaEvent from "~/composables/event/deleteEvent";
 import subscribe from "~/composables/mail/subscribe";
 
 import getEvents from "~/composables/event/getEvents";
-import {
-    addZero,
-    monthNames,
-    truncate,
-    weekDays,
-    isEventPassed,
-} from "~/composables/utils/format";
+import { addZero, monthNames, truncate, weekDays, isEventPassed } from "~/composables/utils/format";
 
 const { user } = useUserStore();
 const router = useRouter();
@@ -91,18 +85,14 @@ if (user?.id) if (!newsCookie.value) newsCookie.value = "true";
 </script>
 
 <template>
-    <div
-        class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5 pb-20"
-    >
+    <div class="px-5 md:px-20 flex flex-col w-full pt-32 h-full min-h-screen max-w-7xl gap-5 pb-20">
         <h1
             class="text-4xl text-center font-bold uppercase text-white whitespace-nowrap text-shadow shadow-white mt-10 mb-5"
         >
             Nos évènements
         </h1>
         <div class="flex flex-col">
-            <div
-                class="flex flex-col md:flex-row items-center justify-center gap-2"
-            >
+            <div class="flex flex-col md:flex-row items-center justify-center gap-2">
                 <input
                     v-if="!isSubscribed && !!!newsCookie"
                     v-model="email"
@@ -166,9 +156,7 @@ if (user?.id) if (!newsCookie.value) newsCookie.value = "true";
         </div> -->
         <div class="w-full flex flex-col items-center gap-5 h-full">
             <EventCard
-                v-for="agendaEvent in events.filter(
-                    (a) => !isEventPassed(a.date),
-                )"
+                v-for="agendaEvent in events.filter((a) => !isEventPassed(a.date))"
                 :key="agendaEvent.id"
                 :agendaEvent="agendaEvent"
                 :events="events"
@@ -177,9 +165,7 @@ if (user?.id) if (!newsCookie.value) newsCookie.value = "true";
             />
             <div class="w-full flex items-center gap-5 my-2 mt-5">
                 <div class="w-full h-[2px] bg-white/10" />
-                <p class="text-white text-center whitespace-nowrap">
-                    Évènements passés
-                </p>
+                <p class="text-white text-center whitespace-nowrap">Évènements passés</p>
                 <div class="w-full h-[2px] bg-white/10" />
             </div>
             <div class="w-full flex flex-col items-center gap-5 h-full">
