@@ -2,6 +2,7 @@
 import { MdEditor } from "md-editor-v3";
 import "md-editor-v3/lib/style.css";
 import { addZero, monthNames, truncate, weekDays } from "~/composables/utils/format";
+import { toDate, toZonedTime, format } from "date-fns-tz";
 
 const props = defineProps<{
     event?: AgendaEvent;
@@ -29,13 +30,11 @@ const newEventDate = ref(
 
 const formatDateForInput = (date: Date) => {
     if (!(date instanceof Date) || isNaN(date.getTime())) {
-        // Return current date if invalid
         date = new Date();
     }
-    // Adjust for local timezone
-    const tzOffset = date.getTimezoneOffset() * 60000; // offset in milliseconds
-    const localDate = new Date(date.getTime() - tzOffset);
-    return localDate.toISOString().slice(0, 16);
+
+    const parisDate = toZonedTime(date, "Europe/Paris");
+    return format(parisDate, "yyyy-MM-dd'T'HH:mm:ss", { timeZone: "Europe/Paris" });
 };
 
 defineExpose({
@@ -115,7 +114,14 @@ defineExpose({
                         type="datetime-local"
                         class="px-1.5 text-white bg-white/10"
                         :value="formatDateForInput(newEventDate)"
-                        @input="(e: any) => (newEventDate = new Date(e?.target?.value))"
+                        @input="
+                            (e: any) => {
+                                const inputDate = e?.target?.value;
+                                newEventDate = toDate(new Date(inputDate), {
+                                    timeZone: 'Europe/Paris',
+                                });
+                            }
+                        "
                     />
                 </p>
             </div>
