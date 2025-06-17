@@ -15,9 +15,9 @@ const gallery = ref([
         span_x: 2,
     },
     {
-        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=3600&y=1800&a=true",
+        src: "https://cloud.shl.contact/s/7N98sDtmk8epo8d/download/IMG_3085%202.jpeg",
         placeholder:
-            "https://cloud.shl.contact/apps/files_sharing/publicpreview/zqp7HLb9tcYdc6Q?file=/&fileId=1320&x=50&y=100&a=true",
+            "https://cloud.shl.contact/s/7N98sDtmk8epo8d/download/IMG_3085%202.jpeg",
     },
     {
         src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/x5RcgB2tLkgx2Zq?file=/&fileId=1320&x=3600&y=1800&a=true",
