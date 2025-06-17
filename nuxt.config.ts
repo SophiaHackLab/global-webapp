@@ -36,6 +36,9 @@ export default defineNuxtConfig({
         "/logout": {
             redirect: "/auth/logout",
         },
+         "/keepitopen": {
+            redirect: "https://www.helloasso.com/associations/sophi-hack/formulaires/2", // Replace with your external URL
+        },
     },
     css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
     modules: [
