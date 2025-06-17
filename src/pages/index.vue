@@ -9,9 +9,9 @@ const gallery = ref([
         span_y: 2,
     },
     {
-        src: "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=3600&y=1800&a=true",
+        src: "https://cloud.shl.contact/s/T2owB5sGS9APpks/download/WhatsApp%20Image%202024-12-01%20at%2016.52.07.jpeg",
         placeholder:
-            "https://cloud.shl.contact/apps/files_sharing/publicpreview/bTSMNG46HkjfZT2?file=/&fileId=1320&x=50&y=100&a=true",
+            "https://cloud.shl.contact/s/T2owB5sGS9APpks/download/WhatsApp%20Image%202024-12-01%20at%2016.52.07.jpeg",
         span_x: 2,
     },
     {
